@@ -53,11 +53,13 @@ Moguć je pristup više korisnika. Korisnik također može izabrati oblasti, a i
  
   
 + Korisnik aplikacije bez fakultetskog e-maila
+  + Sve funkcionalnosti korisnika
 
 + Korisnik aplikacije sa fakultetskim e-mailom  
- 
+  + Sve funkcionalnosti korisnika
 
 + Administrator
+  + Sve funkcionalnosti korisnika
   + Može pregledati statistiku svih korisnika
  
 
