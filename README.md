@@ -28,10 +28,33 @@ Moguć je pristup više korisnika. Korisnik također može izabrati oblasti, a i
 ***Funkcionalnost***
 ------------- 
 
++ Gost
+  + Moguć pregled aplikacije
+  + Mogućnost kreiranja korisničkog računa 
+  
++ Korisnik aplikacije bez fakultetskog e-maila
+  + Kreiranje računa sa osnovnim podacima
+  + Mogućnost pohađanja osnovnih oblasti
+  + Mogućnost pohađanja osnovnih kurseva
+  + Mogućnost pristupa dnevnom izazovu
+  + Moućnost izrade kviza kao provjere znanja
+  + Ocjenjivanje kursa koji pohađa
+  + Pregled rang ljestvice svih ljudi koji su pristupili istom izazovu ( ukoliko korisnik odluči da prrihvati izazov)
+  
++ Korisnik aplikacije sa fakultetskim e-mailom  
+  + Kreiranje računa sa fakultetskim e-mailom
+  + Mogućnost pohađanja osnovnih oblasti
+  + Mogućnost pohađanja dodatnih oblasti
+  + Mogućnost pohađanja svih kurseva
+  + Mogućnost pristupa dnevnom izazovu
+  + Mogućnost izrade kviza kao provjere znanja
+  + Mogućnost ocjenjivanja kursa koji pohađa
+  + Pregled rang ljestvice svih ljudi koji su pristupili istom izazovu ( ukoliko korisnik odluči da prrihvati izazov)
 
 + Administrator
-  + Može pregledati statistiku svih kurseva
+  + Može pregledati statistiku svih korisnika
  
+
 
 
 
