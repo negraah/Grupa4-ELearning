@@ -18,6 +18,8 @@
 - Administrator
 - Korisnik aplikacije sa fakultetskim e-mailom
 - Korisnik aplikacije bez fakultetskog e-maila
+
+
 ***Drugi tip aktera***
 - Naša aplikacija koristi komunikaciju sa eksternom aplikacijom - fakultetskim e-mailom (u zavisnosti da li učenik koji pristupa aplikaciji ima mail ili ne, otvaraju/ ne otvaraju mu se dodatni kursevi koje može pohađati.) 
 
