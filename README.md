@@ -16,12 +16,13 @@ Moguć je pristup više korisnika. Korisnik također može izabrati oblasti, a i
 
 ***Akteri***
 -------------
+***Primarni tip aktera***
 - Administrator
 - Korisnik 
 - Korisnik aplikacije sa fakultetskim e-mailom
 
 ***Drugi tip aktera***
-- Provjeravanje, odnosno validacija e-mail adrese i provjera da li adresa pripada studentu
+- Eksterna aplikacija za provjeravanje, odnosno validaciju e-mail adrese i provjera da li adresa pripada studentu
 
 ***Funkcionalnosti***
 -------------
