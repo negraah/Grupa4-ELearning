@@ -3,7 +3,7 @@ Tema: Platforma za učenje
 
 ```sh
 
-Članovi tima: 
+***Članovi tima:*** 
 
 - Negra Ahmetspahić
 - Adnan Šabanović
