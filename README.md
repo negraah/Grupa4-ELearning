@@ -19,7 +19,7 @@ Moguć je pristup više korisnika. Korisnik također može izabrati oblasti, a i
 ***Primarni tip aktera***
 - Gost - moguć samo pregled aplikacije
 - Korisnik aplikacije bez fakultetskog e-maila - ima pristup osnovnim oblastima i kursevima
-- Korisnik aplikacije sa fakultetskim e-mailom - ima pristup osnovnim oblastima i kursevima, ali i dodatnim oblastima i kursevima
+- Korisnik aplikacije sa fakultetskim e-mailom - ima pristup osnovnim, ali i dodatnim oblastima i kursevima
 - Administrator 
 
 ***Drugi tip aktera***
