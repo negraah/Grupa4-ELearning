@@ -7,4 +7,5 @@ Tema: Platforma za učenje
 - Negra Ahmetspahić
 - Adnan Šabanović
 - Muhamed Opačin
+
 ```
