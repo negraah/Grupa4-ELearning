@@ -52,7 +52,7 @@ Moguć je pristup više korisnika. Korisnik također može izabrati oblasti, a i
   + Mogućnost odjavljivanja sa sistema
  
   
-+Korisnik aplikacije bez fakultetskog e-maila
++ Korisnik aplikacije bez fakultetskog e-maila
 
 + Korisnik aplikacije sa fakultetskim e-mailom  
  
