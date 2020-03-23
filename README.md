@@ -17,9 +17,10 @@ Moguć je pristup više korisnika. Korisnik također može izabrati oblasti, a i
 ***Akteri***
 -------------
 ***Primarni tip aktera***
-- Gost - moguć samo pregled aplikacije
-- Korisnik aplikacije bez fakultetskog e-maila - ima pristup osnovnim oblastima i kursevima
-- Korisnik aplikacije sa fakultetskim e-mailom - ima pristup osnovnim, ali i dodatnim oblastima i kursevima
+- Posjetilac 
+- Korisnik
+- Korisnik aplikacije bez fakultetskog e-maila 
+- Korisnik aplikacije sa fakultetskim e-mailom 
 - Administrator 
 
 ***Drugi tip aktera***
@@ -28,28 +29,33 @@ Moguć je pristup više korisnika. Korisnik također može izabrati oblasti, a i
 ***Funkcionalnost***
 ------------- 
 
-+ Gost
-  + Moguć pregled aplikacije
-  + Mogućnost kreiranja korisničkog računa 
++ Posjetilac
+ + Mogućnost prijavljivanja na sistem
+ + Mogućnost kreiranja korisničkog računa
+ + Moguć pregled oblasti
+ + Moguć pregled kurseva
   
-+ Korisnik aplikacije bez fakultetskog e-maila
-  + Kreiranje računa sa osnovnim podacima
-  + Mogućnost pohađanja osnovnih oblasti
-  + Mogućnost pohađanja osnovnih kurseva
-  + Mogućnost pristupa dnevnom izazovu
-  + Moućnost izrade kviza kao provjere znanja
-  + Ocjenjivanje kursa koji pohađa
-  + Pregled rang ljestvice svih ljudi koji su pristupili istom izazovu ( ukoliko korisnik odluči da prrihvati izazov)
++ Korisnik 
+  + Mogućnost prijavljivanja na sistem
+  + Mogućnost kreiranja korisničkog računa
+  + Moguć pregled oblasti
+  + Moguć pregled kurseva
+  + Mogućnost upisivanja kursa
+  + Pristupanje lekcijama
+  + Izrada kviza za lekciju
+  + Izrada kviza za kurs
+  + Mogućnost dodjeljivanja ocjene kursu
+  + Pristup dnevnom izazovu
+  + Mogućnost pregledanja ljestvice kursa kojeg pohađa
+  + Ostavljanje komentara na kursu
+  + Pregled dosadašnjeg uspjeha
+  + Mogućnost odjavljivanja sa sistema
+ 
   
++Korisnik aplikacije bez fakultetskog e-maila
+
 + Korisnik aplikacije sa fakultetskim e-mailom  
-  + Kreiranje računa sa fakultetskim e-mailom
-  + Mogućnost pohađanja osnovnih oblasti
-  + Mogućnost pohađanja dodatnih oblasti
-  + Mogućnost pohađanja svih kurseva
-  + Mogućnost pristupa dnevnom izazovu
-  + Mogućnost izrade kviza kao provjere znanja
-  + Mogućnost ocjenjivanja kursa koji pohađa
-  + Pregled rang ljestvice svih ljudi koji su pristupili istom izazovu ( ukoliko korisnik odluči da prrihvati izazov)
+ 
 
 + Administrator
   + Može pregledati statistiku svih korisnika
