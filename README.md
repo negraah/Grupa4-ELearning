@@ -17,17 +17,21 @@ Moguć je pristup više korisnika. Korisnik također može izabrati oblasti, a i
 ***Akteri***
 -------------
 ***Primarni tip aktera***
-- Administrator
-- Korisnik 
-- Korisnik aplikacije sa fakultetskim e-mailom
+- Gost - moguć samo pregled aplikacije
+- Korisnik aplikacije bez fakultetskog e-maila - ima pristup osnovnim oblastima i kursevima
+- Korisnik aplikacije sa fakultetskim e-mailom - ima pristup osnovnim oblastima i kursevima, ali i dodatnim oblastima i kursevima
+- Administrator 
 
 ***Drugi tip aktera***
 - Eksterna aplikacija za provjeravanje, odnosno validaciju e-mail adrese i provjera da li adresa pripada studentu
 
 ***Funkcionalnost***
 ------------- 
-+ Item A
-  + Negra
+
+
++ Administrator
+  + Može pregledati statistiku svih kurseva
+ 
 
 
 
