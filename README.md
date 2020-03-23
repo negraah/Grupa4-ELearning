@@ -2,6 +2,7 @@
 Tema: Platforma za učenje
 
 ```sh
+
 Članovi tima: 
 
 - Negra Ahmetspahić
