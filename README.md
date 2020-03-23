@@ -1,7 +1,7 @@
 # Grupa4-ELearning
 ***Tema: Platforma za učenje***
 
-***Članovi tima:*** 
+***Članovi tima*** 
 -------------
 
 - Negra Ahmetspahić
