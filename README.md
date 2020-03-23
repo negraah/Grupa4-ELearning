@@ -25,8 +25,7 @@ Moguć je pristup više korisnika. Korisnik također može izabrati oblasti, a i
 - Eksterna aplikacija za provjeravanje, odnosno validaciju e-mail adrese i provjera da li adresa pripada studentu
 
 ***Funkcionalnost***
--------------
-                
+------------- 
 + Item A
   + Negra
 
