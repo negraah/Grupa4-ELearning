@@ -30,10 +30,10 @@ Moguć je pristup više korisnika. Korisnik također može izabrati oblasti, a i
 ------------- 
 
 + Posjetilac
- + Mogućnost prijavljivanja na sistem
- + Mogućnost kreiranja korisničkog računa
- + Moguć pregled oblasti
- + Moguć pregled kurseva
+  + Mogućnost prijavljivanja na sistem
+  + Mogućnost kreiranja korisničkog računa
+  + Moguć pregled oblasti
+  + Moguć pregled kurseva
   
 + Korisnik 
   + Mogućnost prijavljivanja na sistem
