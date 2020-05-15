@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\adisa\\source\\repos\\ELearning\\ELearning.csproj",
+      "projectUniqueName": "C:\\Users\\adisa\\Source\\Repos\\Grupa4-ELearning\\ELearning Implementacija\\ELearning.csproj",
       "projectName": "ELearning",
-      "projectPath": "C:\\Users\\adisa\\source\\repos\\ELearning\\ELearning.csproj",
+      "projectPath": "C:\\Users\\adisa\\Source\\Repos\\Grupa4-ELearning\\ELearning Implementacija\\ELearning.csproj",
       "packagesPath": "C:\\Users\\adisa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\adisa\\source\\repos\\ELearning\\obj\\",
+      "outputPath": "C:\\Users\\adisa\\Source\\Repos\\Grupa4-ELearning\\ELearning Implementacija\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\adisa\\AppData\\Roaming\\NuGet\\NuGet.Config",
