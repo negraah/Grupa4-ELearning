@@ -1,0 +1,13 @@
+C:\Users\adisa\source\repos\ELearning\obj\Debug\netcoreapp3.1\ELearning.csprojAssemblyReference.cache
+C:\Users\adisa\source\repos\ELearning\obj\Debug\netcoreapp3.1\ELearning.csproj.CoreCompileInputs.cache
+C:\Users\adisa\source\repos\ELearning\obj\Debug\netcoreapp3.1\ELearning.AssemblyInfoInputs.cache
+C:\Users\adisa\source\repos\ELearning\obj\Debug\netcoreapp3.1\ELearning.AssemblyInfo.cs
+C:\Users\adisa\source\repos\ELearning\bin\Debug\netcoreapp3.1\ELearning.exe
+C:\Users\adisa\source\repos\ELearning\bin\Debug\netcoreapp3.1\ELearning.deps.json
+C:\Users\adisa\source\repos\ELearning\bin\Debug\netcoreapp3.1\ELearning.runtimeconfig.json
+C:\Users\adisa\source\repos\ELearning\bin\Debug\netcoreapp3.1\ELearning.runtimeconfig.dev.json
+C:\Users\adisa\source\repos\ELearning\bin\Debug\netcoreapp3.1\ELearning.dll
+C:\Users\adisa\source\repos\ELearning\bin\Debug\netcoreapp3.1\ELearning.pdb
+C:\Users\adisa\source\repos\ELearning\obj\Debug\netcoreapp3.1\ELearning.dll
+C:\Users\adisa\source\repos\ELearning\obj\Debug\netcoreapp3.1\ELearning.pdb
+C:\Users\adisa\source\repos\ELearning\obj\Debug\netcoreapp3.1\ELearning.genruntimeconfig.cache
