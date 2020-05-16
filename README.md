@@ -63,6 +63,8 @@ Moguć je pristup više korisnika. Korisnik također može izabrati oblasti, a i
   + Može pregledati statistiku svih korisnika
  
 ***Web servis***
+-------------
+
 Dnevni izazov (daily challenge) je planiran da bude web servis. Ova funkcionalnost služi za određivanje najboljih korisnika koji će se prikazivati na ljestvici. 
 
 
