@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace E_Learning.Models
 {
 	public class Oblast
 	{
-		private String naziv;
-		private List<Kurs> kursevi;
 
-		public Oblast(String naziv, List<Kurs> kursevi)
-		{
-			this.naziv = naziv;
-			this.kursevi = kursevi;
-		}
+
+		[Key]
+		public int Id { get; set; }
+		public string Naziv { get; set; }
+
+		public List<Kurs> Kursevi { get; set; }
 	}
 }

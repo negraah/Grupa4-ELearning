@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace E_Learning.Models
 {
 	public class Kurs
 	{
-		private String naziv;
-		private List<Lekcija> lekcije;
-		private List<Korisnik> upisani;
+		[Key]
+		public int Id { get; set; }
+		public string Naziv { get; set; }
 
-		public Kurs(String naziv, List<Lekcija> lekcije, List<Korisnik> upisani)
-		{
-			this.naziv = naziv;
-			this.lekcije = lekcije;
-			this.upisani = upisani;
-		}
+		public int OblastId { get; set; }
+		public Oblast Oblast { get; set; }
+
+		public List<Lekcija> Lekcije { get; set; }
+		public List<Korisnik> Upisani { get; set; }
 	}
 }

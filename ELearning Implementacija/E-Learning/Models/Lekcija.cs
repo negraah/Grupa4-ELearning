@@ -1,16 +1,15 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace E_Learning.Models
 {
 	public class Lekcija
 	{
-		private String naziv;
-		private String put;
+		[Key]
+		public int Id { get; set; }
+		public string Ime { get; set; }
 
-		public Lekcija(String naziv, String put)
-		{
-			this.naziv = naziv;
-			this.put = put;
-		}
+		public int KursId { get; set; }
+		public Kurs Kurs { get; set; }
 	}
 }
