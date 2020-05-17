@@ -14,6 +14,6 @@ namespace E_Learning.Models
 		public Oblast Oblast { get; set; }
 
 		public List<Lekcija> Lekcije { get; set; }
-		public List<Korisnik> Upisani { get; set; }
+		public List<Upisivanje> Upisivanje { get; set; }
 	}
 }

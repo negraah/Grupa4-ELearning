@@ -11,6 +11,7 @@ namespace E_Learning.Models
 		public string Ime { get; set; }
 		public string Prezime { get; set; }
 		public string Email { get; set; }
-		public List<Kurs> Kursevi { get; set; }
+
+		public List<Upisivanje> Upisivanje { get; set; }
 	}
 }
