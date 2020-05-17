@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ELearning
+namespace E_Learning.Models
 {
 	public class Lekcija
 	{

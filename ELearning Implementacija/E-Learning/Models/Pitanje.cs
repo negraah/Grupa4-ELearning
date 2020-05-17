@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ELearning
+namespace E_Learning.Models
 {
 	public class Pitanje
 	{

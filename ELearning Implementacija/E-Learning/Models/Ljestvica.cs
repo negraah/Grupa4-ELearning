@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 
-namespace ELearning
+namespace E_Learning.Models
 {
 	public class Ljestvica
 	{

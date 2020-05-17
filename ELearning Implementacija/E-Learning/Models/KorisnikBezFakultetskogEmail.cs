@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ELearning
+namespace E_Learning.Models
 {
     class KorisnikBezFakultetskogEmail : Korisnik
     {
