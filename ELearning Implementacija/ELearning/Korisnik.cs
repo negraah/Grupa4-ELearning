@@ -5,11 +5,20 @@ namespace ELearning
 {
 	public class Korisnik
 	{
-		private int id;
+		protected int id;
 		private String ime;
 		private String prezime;
 		private String email;
 		private List<Kurs> kursevi;
+
+		public Korisnik()
+		{
+			id = -1;
+			ime = null;
+			prezime = null;
+			email = null;
+			kursevi = new List<Kurs>();
+		}
 
 		public Korisnik(int id, String ime, String prezime, String email)
 		{
