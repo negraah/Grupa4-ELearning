@@ -17,7 +17,8 @@ namespace E_Learning.Models
 		/*public int LekcijaId { get; set; }
 		public Lekcija Lekcija { get; set; }*/
 
-		public int KursId { get; set; }
+		/*public int KursId { get; set; }
 		public Kurs Kurs { get; set; }
+		*/
 	}
 }

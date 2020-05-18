@@ -14,8 +14,9 @@ namespace E_Learning.Models
 		public string NetacenOdg2 { get; set; }
 		public string NetacenOdg3 { get; set; }
 
-		public int LekcijaId { get; set; }
+		/*public int LekcijaId { get; set; }
 		public Lekcija Lekcija { get; set; }
+		*/
 
 		public int KursId { get; set; }
 		public Kurs Kurs { get; set; }

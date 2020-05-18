@@ -24,5 +24,11 @@ namespace E_Learning.Data
         public DbSet<Upisivanje> Upisivanje { get; set; }
 
 
+        /*
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<Korisnik>().ToTable("Korisnik");
+        }*/
+
     }
 }

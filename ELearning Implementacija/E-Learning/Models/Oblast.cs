@@ -12,6 +12,6 @@ namespace E_Learning.Models
 		public int Id { get; set; }
 		public string Naziv { get; set; }
 
-		public List<Kurs> Kursevi { get; set; }
+		public List<Kurs> Kurs { get; set; }
 	}
 }

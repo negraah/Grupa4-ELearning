@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace E_Learning.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200517215922_init")]
+    [Migration("20200517235122_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,6 +32,9 @@ namespace E_Learning.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Ime")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Prezime")
@@ -72,17 +75,12 @@ namespace E_Learning.Data.Migrations
                     b.Property<int>("KorisnikId")
                         .HasColumnType("int");
 
-                    b.Property<int>("KursId")
-                        .HasColumnType("int");
-
                     b.Property<int>("Rezultat")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("KorisnikId");
-
-                    b.HasIndex("KursId");
 
                     b.ToTable("Kviz");
                 });
@@ -157,9 +155,6 @@ namespace E_Learning.Data.Migrations
                     b.Property<int>("KursId")
                         .HasColumnType("int");
 
-                    b.Property<int>("LekcijaId")
-                        .HasColumnType("int");
-
                     b.Property<string>("NetacenOdg1")
                         .HasColumnType("nvarchar(max)");
 
@@ -178,8 +173,6 @@ namespace E_Learning.Data.Migrations
                     b.HasKey("PitanjeId");
 
                     b.HasIndex("KursId");
-
-                    b.HasIndex("LekcijaId");
 
                     b.ToTable("Pitanje");
                 });
@@ -409,7 +402,7 @@ namespace E_Learning.Data.Migrations
             modelBuilder.Entity("E_Learning.Models.Kurs", b =>
                 {
                     b.HasOne("E_Learning.Models.Oblast", "Oblast")
-                        .WithMany("Kursevi")
+                        .WithMany("Kurs")
                         .HasForeignKey("OblastId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -420,12 +413,6 @@ namespace E_Learning.Data.Migrations
                     b.HasOne("E_Learning.Models.Korisnik", "Korisnik")
                         .WithMany()
                         .HasForeignKey("KorisnikId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("E_Learning.Models.Kurs", "Kurs")
-                        .WithMany()
-                        .HasForeignKey("KursId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -459,12 +446,6 @@ namespace E_Learning.Data.Migrations
                     b.HasOne("E_Learning.Models.Kurs", "Kurs")
                         .WithMany()
                         .HasForeignKey("KursId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("E_Learning.Models.Lekcija", "Lekcija")
-                        .WithMany()
-                        .HasForeignKey("LekcijaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
