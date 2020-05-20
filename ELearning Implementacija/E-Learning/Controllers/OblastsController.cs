@@ -154,7 +154,7 @@ namespace E_Learning.Controllers
         //GET : Kurs
         public async Task<IActionResult> Open(int id)
         {
-            return RedirectToAction("Index", "Kurs", new { });
+            return RedirectToAction("Index", "Kurs", new { OblastId = id });
         }
 
     }

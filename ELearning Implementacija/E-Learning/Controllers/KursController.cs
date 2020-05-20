@@ -20,10 +20,14 @@ namespace E_Learning.Controllers
         }
 
         // GET: Kurs
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? OblastId)
         {
             var applicationDbContext = _context.Kurs.Include(k => k.Oblast);
-            return View(await applicationDbContext.ToListAsync());
+            if (!OblastId.HasValue)
+            {
+                return View(await applicationDbContext.ToListAsync());
+            }
+            return View(await applicationDbContext.Where(k => k.OblastId == OblastId).ToListAsync());
         }
 
         // GET: Kurs/Details/5
