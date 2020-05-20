@@ -160,5 +160,12 @@ namespace E_Learning.Controllers
         {
             return _context.Kurs.Any(e => e.Id == id);
         }
+
+
+        //GET : Kurs
+        public IActionResult Open(int id)
+        {
+            return RedirectToAction("Index", "Lekcijas", new { KursId = id });
+        }
     }
 }
