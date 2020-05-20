@@ -20,10 +20,14 @@ namespace E_Learning.Controllers
         }
 
         // GET: Lekcijas
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? KursId)
         {
             var applicationDbContext = _context.Lekcija.Include(l => l.Kurs);
-            return View(await applicationDbContext.ToListAsync());
+            if (!KursId.HasValue)
+            {
+                return View(await applicationDbContext.ToListAsync());
+            }
+            return View(await applicationDbContext.Where(lekcija => lekcija.KursId == KursId).ToListAsync());
         }
 
         // GET: Lekcijas/Details/5
