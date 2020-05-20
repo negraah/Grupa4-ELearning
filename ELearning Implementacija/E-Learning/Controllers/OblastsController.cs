@@ -149,5 +149,13 @@ namespace E_Learning.Controllers
         {
             return _context.Oblast.Any(e => e.Id == id);
         }
+
+
+        //GET : Kurs
+        public async Task<IActionResult> Open(int id)
+        {
+            return RedirectToAction("Index", "Kurs", new { });
+        }
+
     }
 }
