@@ -54,7 +54,7 @@ namespace E_Learning.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Ime,Prezime,Email,Password")] Korisnik korisnik)
+        public async Task<IActionResult> Create([Bind("Id,Ime,Prezime,Email,Password,Pristup")] Korisnik korisnik)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace E_Learning.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Ime,Prezime,Email,Password")] Korisnik korisnik)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Ime,Prezime,Email,Password,Pristup")] Korisnik korisnik)
         {
             if (id != korisnik.Id)
             {

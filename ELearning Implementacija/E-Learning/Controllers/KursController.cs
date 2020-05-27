@@ -61,7 +61,7 @@ namespace E_Learning.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Naziv,OblastId")] Kurs kurs)
+        public async Task<IActionResult> Create([Bind("Id,Naziv,PotrebanFaks,OblastId")] Kurs kurs)
         {
             if (ModelState.IsValid)
             {
@@ -95,7 +95,7 @@ namespace E_Learning.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Naziv,OblastId")] Kurs kurs)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Naziv,PotrebanFaks,OblastId")] Kurs kurs)
         {
             if (id != kurs.Id)
             {
@@ -160,7 +160,6 @@ namespace E_Learning.Controllers
         {
             return _context.Kurs.Any(e => e.Id == id);
         }
-
 
         //GET : Kurs
         public IActionResult Open(int id)
