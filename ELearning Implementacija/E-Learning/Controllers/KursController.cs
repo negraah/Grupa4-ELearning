@@ -169,8 +169,18 @@ namespace E_Learning.Controllers
 
 
         //GET : Upis
-        public IActionResult Upisi(int id)
+        public async Task<IActionResult> Upisi(int id)
         {
+            
+            Kurs kurs = await _context.Kurs.FirstOrDefaultAsync(k => k.Id == id);
+            if (KorisniksController.Trenutni == null) 
+                return RedirectToAction("Index", "Kurs", new { OblastId = kurs.OblastId });
+
+            if(kurs.PotrebanFaks & KorisniksController.Trenutni.Pristup == 0)
+                return RedirectToAction("Index", "Kurs", new { OblastId = kurs.OblastId });
+
+
+
             return RedirectToAction("Index", "Lekcijas", new { KursId = id });
         }
     }
