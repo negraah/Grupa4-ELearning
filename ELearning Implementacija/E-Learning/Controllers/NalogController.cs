@@ -57,10 +57,13 @@ namespace E_Learning.Controllers
         {
             if (ModelState.IsValid)
             {
-                if(await _context.Korisnik.FirstOrDefaultAsync(k => k.Email == korisnik.Email) != null) return View();
+                if(await _context.Korisnik.FirstOrDefaultAsync(k => k.Email == korisnik.Email) != null) 
+                    return View("Registracija", "Nalog");
+                korisnik.Pristup = korisnik.Email.Split('@')[1] == "etf.unsa.ba" ? 1 : 0;
+
                 _context.Add(korisnik);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Prijava", "Nalog");
             }
             return View();
         }
