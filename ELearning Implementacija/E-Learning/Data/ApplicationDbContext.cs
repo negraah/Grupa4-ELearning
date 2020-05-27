@@ -29,6 +29,5 @@ namespace E_Learning.Data
         {
             builder.Entity<Korisnik>().ToTable("Korisnik");
         }*/
-
     }
 }

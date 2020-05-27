@@ -27,7 +27,7 @@ namespace E_Learning.Controllers
         }
 
         [HttpPost]
-        public RedirectToActionResult Prijava(string Email, string Password)
+        public async Task<RedirectToActionResult> Prijava(string Email, string Password)
         {
             /*
             Console.WriteLine("Hi!");
@@ -35,7 +35,16 @@ namespace E_Learning.Controllers
             Console.WriteLine(Password);
             */
 
-            return RedirectToAction("Index", "Home");
+            Korisnik k = await _context.Korisnik.FirstOrDefaultAsync(k1 => k1.Email == Email);
+            if(k != null & k.Password == Password)
+            {
+                KorisniksController.Trenutni = k;
+                return RedirectToAction("Index", "Home");
+            }
+
+
+            Console.WriteLine(KorisniksController.Trenutni.Ime);
+            return RedirectToAction("Prijava", "Nalog");
         }
 
 

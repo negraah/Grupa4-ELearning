@@ -13,6 +13,7 @@ namespace E_Learning.Controllers
     public class KorisniksController : Controller
     {
         private readonly ApplicationDbContext _context;
+        public static Korisnik Trenutni { get; set; } = null;
 
         public KorisniksController(ApplicationDbContext context)
         {
