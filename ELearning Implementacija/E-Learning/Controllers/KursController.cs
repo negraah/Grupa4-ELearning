@@ -166,5 +166,12 @@ namespace E_Learning.Controllers
         {
             return RedirectToAction("Index", "Lekcijas", new { KursId = id });
         }
+
+
+        //GET : Upis
+        public IActionResult Upisi(int id)
+        {
+            return RedirectToAction("Index", "Lekcijas", new { KursId = id });
+        }
     }
 }
