@@ -29,21 +29,12 @@ namespace E_Learning.Controllers
         [HttpPost]
         public async Task<RedirectToActionResult> Prijava(string Email, string Password)
         {
-            /*
-            Console.WriteLine("Hi!");
-            Console.WriteLine(Email);
-            Console.WriteLine(Password);
-            */
-
             Korisnik k = await _context.Korisnik.FirstOrDefaultAsync(k1 => k1.Email == Email);
             if(k != null & k.Password == Password)
             {
                 KorisniksController.Trenutni = k;
                 return RedirectToAction("Index", "Home");
             }
-
-
-            Console.WriteLine(KorisniksController.Trenutni.Ime);
             return RedirectToAction("Prijava", "Nalog");
         }
 
@@ -72,6 +63,14 @@ namespace E_Learning.Controllers
                 return RedirectToAction("Index", "Home");
             }
             return View();
+        }
+
+
+        
+        public RedirectToActionResult Odjava()
+        {
+            KorisniksController.Trenutni = null;
+            return RedirectToAction("Index", "Home");
         }
     }
 }

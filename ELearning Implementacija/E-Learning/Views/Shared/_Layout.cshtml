@@ -30,12 +30,24 @@
                         </li>
                     </ul>
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Nalog" asp-action="Prijava">Prijava</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Nalog" asp-action="Registracija">Registracija</a>
-                        </li>
+                        @if (E_Learning.Controllers.KorisniksController.Trenutni == null)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Nalog" asp-action="Prijava">Prijava</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Nalog" asp-action="Registracija">Registracija</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                Zdravo @E_Learning.Controllers.KorisniksController.Trenutni.Ime
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Nalog" asp-action="Odjava">Odjava</a>
+                            </li>
+                        }
                     </ul>
 
                 </div>
