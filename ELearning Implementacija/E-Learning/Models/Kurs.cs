@@ -10,6 +10,8 @@ namespace E_Learning.Models
 		public int Id { get; set; }
 		public string Naziv { get; set; }
 
+		public bool PotrebanFaks { get; set; }
+
 		public int OblastId { get; set; }
 		public Oblast Oblast { get; set; }
 
