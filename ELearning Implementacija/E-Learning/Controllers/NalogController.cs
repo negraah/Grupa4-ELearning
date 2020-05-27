@@ -6,22 +6,35 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using E_Learning.Models;
+using E_Learning.Data;
 
 namespace E_Learning.Controllers
 {
     public class NalogController : Controller
     {
-        private readonly ILogger<NalogController> _logger;
+        private readonly ApplicationDbContext _context;
 
-        public NalogController(ILogger<NalogController> logger)
+        public NalogController(ApplicationDbContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
         public IActionResult Prijava()
         {
             return View();
         }
+
+        [HttpPost]
+        public RedirectToActionResult Prijava(string Email, string Password)
+        {
+            /*
+            Console.WriteLine("Hi!");
+            Console.WriteLine(Email);
+            Console.WriteLine(Password);
+            */
+            return RedirectToAction("Index", "Home");
+        }
+
 
         public IActionResult Registracija()
         {
