@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using E_Learning.Data;
 using E_Learning.Models;
+using System.Security.Cryptography.X509Certificates;
 
 namespace E_Learning.Controllers
 {
@@ -22,6 +23,11 @@ namespace E_Learning.Controllers
         // GET: Oblasts
         public async Task<IActionResult> Index()
         {
+            var oblasti = _context.Oblast.FromSqlRaw(sql: "select * from Oblast").ToList();
+            foreach (var item in oblasti)
+            {
+                Console.WriteLine(item.Naziv);
+            }
             return View(await _context.Oblast.ToListAsync());
         }
 
