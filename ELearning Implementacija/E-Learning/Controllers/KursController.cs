@@ -162,8 +162,14 @@ namespace E_Learning.Controllers
         }
 
         //GET : Kurs
-        public IActionResult Open(int id)
+        public async Task<IActionResult> Open(int id)
         {
+            Kurs kurs = await _context.Kurs.FirstOrDefaultAsync(k => k.Id == id);
+            if(KorisniksController.Trenutni == null) return RedirectToAction("Index", "Kurs", new { OblastId = kurs.OblastId });
+            Upisivanje upisivanje = await _context.Upisivanje.FirstOrDefaultAsync
+                (u => u.KorisnikId == KorisniksController.Trenutni.Id & kurs.Id == u.KursId);
+            if (upisivanje == null) return RedirectToAction("Index", "Kurs", new { OblastId = kurs.OblastId });
+
             return RedirectToAction("Index", "Lekcijas", new { KursId = id });
         }
 
@@ -179,7 +185,15 @@ namespace E_Learning.Controllers
             if(kurs.PotrebanFaks & KorisniksController.Trenutni.Pristup == 0)
                 return RedirectToAction("Index", "Kurs", new { OblastId = kurs.OblastId });
 
+            Upisivanje upisivanje = new Upisivanje();
+            upisivanje.KorisnikId = KorisniksController.Trenutni.Id;
+            upisivanje.KursId = kurs.Id;
+            
+            if(await _context.Upisivanje.FirstOrDefaultAsync(u => u.KorisnikId == KorisniksController.Trenutni.Id & u.KursId == kurs.Id) != null)
+                return RedirectToAction("Index", "Kurs", new { OblastId = kurs.OblastId });
 
+            _context.Upisivanje.Add(upisivanje);
+            await _context.SaveChangesAsync();
 
             return RedirectToAction("Index", "Lekcijas", new { KursId = id });
         }
