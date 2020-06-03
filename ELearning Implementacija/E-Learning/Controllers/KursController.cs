@@ -165,12 +165,12 @@ namespace E_Learning.Controllers
         public async Task<IActionResult> Open(int id)
         {
             Kurs kurs = await _context.Kurs.FirstOrDefaultAsync(k => k.Id == id);
-            if(KorisniksController.Trenutni == null) return RedirectToAction("Index", "Kurs", new { OblastId = kurs.OblastId });
+            if(KorisniksController.Trenutni == null) return RedirectToAction("NijePrijavljen", "NotUpisan");
             Upisivanje upisivanje = await _context.Upisivanje.FirstOrDefaultAsync
                 (u => u.KorisnikId == KorisniksController.Trenutni.Id & kurs.Id == u.KursId);
             if (upisivanje == null)
             {
-                return RedirectToAction("Index", "NotUpisan");
+                return RedirectToAction("NijeUpisan", "NotUpisan");
             }
 
             return RedirectToAction("Index", "Lekcijas", new { KursId = id });

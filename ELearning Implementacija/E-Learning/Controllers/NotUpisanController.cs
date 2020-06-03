@@ -8,7 +8,12 @@ namespace E_Learning.Controllers
 {
     public class NotUpisanController : Controller
     {
-        public IActionResult Index()
+        public IActionResult NijeUpisan()
+        {
+            return View();
+        }
+
+        public IActionResult NijePrijavljen()
         {
             return View();
         }
