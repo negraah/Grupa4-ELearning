@@ -168,7 +168,10 @@ namespace E_Learning.Controllers
             if(KorisniksController.Trenutni == null) return RedirectToAction("Index", "Kurs", new { OblastId = kurs.OblastId });
             Upisivanje upisivanje = await _context.Upisivanje.FirstOrDefaultAsync
                 (u => u.KorisnikId == KorisniksController.Trenutni.Id & kurs.Id == u.KursId);
-            if (upisivanje == null) return RedirectToAction("Index", "Kurs", new { OblastId = kurs.OblastId });
+            if (upisivanje == null)
+            {
+                return RedirectToAction("Index", "NotUpisan");
+            }
 
             return RedirectToAction("Index", "Lekcijas", new { KursId = id });
         }
