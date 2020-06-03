@@ -6,6 +6,7 @@ namespace E_Learning.Models
 {
 	public class Kviz
 	{
+
 		[Key]
 		public int Id { get; set; }
 		public int Rezultat { get; set; }

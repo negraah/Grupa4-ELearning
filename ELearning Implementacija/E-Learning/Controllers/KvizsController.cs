@@ -13,10 +13,40 @@ namespace E_Learning.Controllers
     public class KvizsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private List<Pitanje> pitanja;
+        private static Random rng = new Random();
 
         public KvizsController(ApplicationDbContext context)
         {
             _context = context;
+        }
+
+        public static List<Pitanje> Shuffle(List<Pitanje> list)
+        {
+            int n = list.Count;
+            while (n > 1)
+            {
+                n--;
+                int k = rng.Next(n + 1);
+                Pitanje value = list[k];
+                list[k] = list[n];
+                list[n] = value;
+            }
+
+            return list;
+        }
+
+
+        public static async void ListaPitanja(int KursId, ApplicationDbContext _context)
+        {
+            List<Pitanje> pitanja = await _context.Pitanje.Where(p => p.KursId == KursId).ToListAsync();
+            pitanja = Shuffle(pitanja);
+            pitanja = pitanja.GetRange(0, 3);
+        }
+
+        public static void ListaPitanja(Kurs k, ApplicationDbContext _context)
+        {
+            ListaPitanja(k.Id, _context);
         }
 
         // GET: Kvizs
