@@ -6,14 +6,16 @@
 <h1>Sretno :D</h1>
 
 <p>@E_Learning.Controllers.KvizsController.pitanja[0].PitanjeTekst</p>
-<input type="radio" id="odgovor1_1" name="pitanje1" value="male">
-<label for="odgovor1_1">Male</label>
+<input type="radio" id="odgovor1_1" name="pitanje1" value="@E_Learning.Controllers.KvizsController.get_odgovori_pitanja()[0][0]">
+<label for="odgovor1_1">@E_Learning.Controllers.KvizsController.get_odgovori_pitanja()[0][0]</label>
 <br>
-<input type="radio" id="odgovor1_2" name="pitanje1" value="female">
-<label for="odgovor1_2">Female</label>
+<input type="radio" id="odgovor1_2" name="pitanje1" value="@E_Learning.Controllers.KvizsController.get_odgovori_pitanja()[0][1]">
+<label for="odgovor1_2">@E_Learning.Controllers.KvizsController.get_odgovori_pitanja()[0][1]</label>
 <br>
-<input type="radio" id="odgovor1_3" name="pitanje1" value="other">
-<label for="odgovor1_3">Other</label>
+<input type="radio" id="odgovor1_3" name="pitanje1" value="@E_Learning.Controllers.KvizsController.get_odgovori_pitanja()[0][2]">
+<label for="odgovor1_3">@E_Learning.Controllers.KvizsController.get_odgovori_pitanja()[0][2]</label>
 <br>
-<input type="radio" id="odgovor1_4" name="pitanje1" value="other">
-<label for="odgovor1_4">Other</label>
+<input type="radio" id="odgovor1_4" name="pitanje1" value="@E_Learning.Controllers.KvizsController.get_odgovori_pitanja()[0][3]">
+<label for="odgovor1_4">@E_Learning.Controllers.KvizsController.get_odgovori_pitanja()[0][3]</label>
+<br>
+<br>

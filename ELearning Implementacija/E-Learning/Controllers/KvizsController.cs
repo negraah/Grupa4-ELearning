@@ -15,6 +15,7 @@ namespace E_Learning.Controllers
         private readonly ApplicationDbContext _context;
         public static List<Pitanje> pitanja;
         private static Random rng = new Random();
+        private static List<List<String>> odgovori_tekst = null;
 
         public KvizsController(ApplicationDbContext context)
         {
@@ -49,7 +50,7 @@ namespace E_Learning.Controllers
         public IActionResult Izrada()
         {
             if (KvizsController.pitanja != null) KvizsController.pitanja.ForEach(x => Console.WriteLine(x.PitanjeTekst));
-            List<List<String>> odgovori_tekst = new List<List<String>>();
+            odgovori_tekst = new List<List<String>>();
             for (int i = 0; i < 3; i++)
             {
                 var odgovori_i = new List<String>();
@@ -60,8 +61,12 @@ namespace E_Learning.Controllers
                 odgovori_tekst.Add(Shuffle(odgovori_i));
             }
             
-
             return View();
+        }
+
+        public static List<List<String>> get_odgovori_pitanja()
+        {
+            return odgovori_tekst;
         }
 
         // GET: Kvizs/Details/5
