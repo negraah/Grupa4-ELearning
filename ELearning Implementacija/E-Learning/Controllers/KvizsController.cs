@@ -199,5 +199,22 @@ namespace E_Learning.Controllers
         {
             return _context.Kviz.Any(e => e.Id == id);
         }
+
+        // POST: Predaj
+        [HttpPost]
+        public async Task<RedirectToActionResult> Predaj()
+        {
+            Console.WriteLine("Hello!");
+            if (ModelState.IsValid)
+            {
+                /*
+                _context.Add(kurs);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+                */
+            }
+            //ViewData["OblastId"] = new SelectList(_context.Oblast, "Id", "Id", kurs.OblastId);
+            return RedirectToAction("Index", "Kvizs");
+        }
     }
 }

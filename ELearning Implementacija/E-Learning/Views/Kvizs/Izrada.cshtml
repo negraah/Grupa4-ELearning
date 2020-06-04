@@ -5,21 +5,25 @@
 
 <h1>Sretno :D</h1>
 
-
-@for (int i = 0; i < 3; i++)
-{
-<p>@E_Learning.Controllers.KvizsController.pitanja[i].PitanjeTekst</p>
-<input type="radio" id="@("odgovor"+i+"_1")" name="@("pitanje_"+i)" value="@E_Learning.Controllers.KvizsController.get_odgovori_pitanja()[i][0]">
-<label for="@("odgovor"+i+"_1")">@E_Learning.Controllers.KvizsController.get_odgovori_pitanja()[i][0]</label>
-<br>
-<input type="radio" id="@("odgovor"+i+"_2")" name="@("pitanje_"+i)" value="@E_Learning.Controllers.KvizsController.get_odgovori_pitanja()[i][1]">
-<label for="@("odgovor"+i+"_2")">@E_Learning.Controllers.KvizsController.get_odgovori_pitanja()[i][1]</label>
-<br>
-<input type="radio" id="@("odgovor"+i+"_3")" name="@("pitanje_"+i)" value="@E_Learning.Controllers.KvizsController.get_odgovori_pitanja()[i][2]">
-<label for="@("odgovor"+i+"_3")">@E_Learning.Controllers.KvizsController.get_odgovori_pitanja()[i][2]</label>
-<br>
-<input type="radio" id="@("odgovor"+i+"_4")" name="@("pitanje_"+i)" value="@E_Learning.Controllers.KvizsController.get_odgovori_pitanja()[i][3]">
-<label for="@("odgovor"+i+"_4")">@E_Learning.Controllers.KvizsController.get_odgovori_pitanja()[i][3]</label>
-<br>
-<br>
-}
+<form asp-action="Predaj">
+    @for (int i = 0; i < 3; i++)
+    {
+        <p>@E_Learning.Controllers.KvizsController.pitanja[i].PitanjeTekst</p>
+        <input type="radio" id="@("odgovor"+i+"_1")" name="@("pitanje_"+i)" value="@E_Learning.Controllers.KvizsController.get_odgovori_pitanja()[i][0]">
+        <label for="@("odgovor"+i+"_1")">@E_Learning.Controllers.KvizsController.get_odgovori_pitanja()[i][0]</label>
+        <br>
+        <input type="radio" id="@("odgovor"+i+"_2")" name="@("pitanje_"+i)" value="@E_Learning.Controllers.KvizsController.get_odgovori_pitanja()[i][1]">
+        <label for="@("odgovor"+i+"_2")">@E_Learning.Controllers.KvizsController.get_odgovori_pitanja()[i][1]</label>
+        <br>
+        <input type="radio" id="@("odgovor"+i+"_3")" name="@("pitanje_"+i)" value="@E_Learning.Controllers.KvizsController.get_odgovori_pitanja()[i][2]">
+        <label for="@("odgovor"+i+"_3")">@E_Learning.Controllers.KvizsController.get_odgovori_pitanja()[i][2]</label>
+        <br>
+        <input type="radio" id="@("odgovor"+i+"_4")" name="@("pitanje_"+i)" value="@E_Learning.Controllers.KvizsController.get_odgovori_pitanja()[i][3]">
+        <label for="@("odgovor"+i+"_4")">@E_Learning.Controllers.KvizsController.get_odgovori_pitanja()[i][3]</label>
+        <br>
+        <br>
+    }
+    <div class="form-group">
+        <input type="submit" value="Predaj" class="btn btn-primary" asp-action="Predaj" />
+    </div>
+</form>
