@@ -21,14 +21,14 @@ namespace E_Learning.Controllers
             _context = context;
         }
 
-        public static List<Pitanje> Shuffle(List<Pitanje> list)
+        public static List<T> Shuffle<T>(List<T> list)
         {
             int n = list.Count;
             while (n > 1)
             {
                 n--;
                 int k = rng.Next(n + 1);
-                Pitanje value = list[k];
+                T value = list[k];
                 list[k] = list[n];
                 list[n] = value;
             }
