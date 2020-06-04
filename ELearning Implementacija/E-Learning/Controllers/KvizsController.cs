@@ -49,6 +49,18 @@ namespace E_Learning.Controllers
         public IActionResult Izrada()
         {
             if (KvizsController.pitanja != null) KvizsController.pitanja.ForEach(x => Console.WriteLine(x.PitanjeTekst));
+            List<List<String>> odgovori_tekst = new List<List<String>>();
+            for (int i = 0; i < 3; i++)
+            {
+                var odgovori_i = new List<String>();
+                odgovori_i.Add(pitanja[i].TacanOdg);
+                odgovori_i.Add(pitanja[i].NetacenOdg1);
+                odgovori_i.Add(pitanja[i].NetacenOdg2);
+                odgovori_i.Add(pitanja[i].NetacenOdg3);
+                odgovori_tekst.Add(Shuffle(odgovori_i));
+            }
+            
+
             return View();
         }
 
