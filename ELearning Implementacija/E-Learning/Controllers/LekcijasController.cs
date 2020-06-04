@@ -13,6 +13,7 @@ namespace E_Learning.Controllers
     public class LekcijasController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private static Kurs trenutniKurs = null;
 
         public LekcijasController(ApplicationDbContext context)
         {
@@ -25,8 +26,10 @@ namespace E_Learning.Controllers
             var applicationDbContext = _context.Lekcija.Include(l => l.Kurs);
             if (!KursId.HasValue)
             {
+                trenutniKurs = null;
                 return View(await applicationDbContext.ToListAsync());
             }
+            trenutniKurs = _context.Kurs.Find(KursId);
             return View(await applicationDbContext.Where(lekcija => lekcija.KursId == KursId).ToListAsync());
         }
 
@@ -159,6 +162,18 @@ namespace E_Learning.Controllers
         private bool LekcijaExists(int id)
         {
             return _context.Lekcija.Any(e => e.Id == id);
+        }
+
+
+
+        public async Task<IActionResult> PokreniKviz()
+        {
+            Console.WriteLine("HI!");
+            List<Pitanje> pitanja = await _context.Pitanje.Where(p => p.KursId == trenutniKurs.Id).ToListAsync();
+            pitanja = KvizsController.Shuffle(pitanja);
+            pitanja = pitanja.GetRange(0, 3);
+            KvizsController.pitanja = pitanja;
+            return RedirectToAction("Izrada", "Kvizs");
         }
     }
 }

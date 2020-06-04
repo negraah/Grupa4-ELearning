@@ -13,7 +13,7 @@ namespace E_Learning.Controllers
     public class KvizsController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private List<Pitanje> pitanja;
+        public static List<Pitanje> pitanja;
         private static Random rng = new Random();
 
         public KvizsController(ApplicationDbContext context)
@@ -36,24 +36,20 @@ namespace E_Learning.Controllers
             return list;
         }
 
-
-        public static async void ListaPitanja(int KursId, ApplicationDbContext _context)
-        {
-            List<Pitanje> pitanja = await _context.Pitanje.Where(p => p.KursId == KursId).ToListAsync();
-            pitanja = Shuffle(pitanja);
-            pitanja = pitanja.GetRange(0, 3);
-        }
-
-        public static void ListaPitanja(Kurs k, ApplicationDbContext _context)
-        {
-            ListaPitanja(k.Id, _context);
-        }
-
         // GET: Kvizs
         public async Task<IActionResult> Index()
         {
+            if(KvizsController.pitanja != null) KvizsController.pitanja.ForEach(x => Console.WriteLine(x.PitanjeTekst));
             var applicationDbContext = _context.Kviz.Include(k => k.Korisnik);
             return View(await applicationDbContext.ToListAsync());
+        }
+
+
+        //GET: Izrada
+        public Task<IActionResult> Izrada()
+        {
+            if (KvizsController.pitanja != null) KvizsController.pitanja.ForEach(x => Console.WriteLine(x.PitanjeTekst));
+            return View();
         }
 
         // GET: Kvizs/Details/5
