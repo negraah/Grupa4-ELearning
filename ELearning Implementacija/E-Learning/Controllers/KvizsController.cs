@@ -46,7 +46,7 @@ namespace E_Learning.Controllers
 
 
         //GET: Izrada
-        public Task<IActionResult> Izrada()
+        public IActionResult Izrada()
         {
             if (KvizsController.pitanja != null) KvizsController.pitanja.ForEach(x => Console.WriteLine(x.PitanjeTekst));
             return View();
