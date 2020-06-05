@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using E_Learning.Data;
 using E_Learning.Models;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace E_Learning.Controllers
 {
@@ -202,9 +203,23 @@ namespace E_Learning.Controllers
 
         // POST: Predaj
         [HttpPost]
-        public async Task<RedirectToActionResult> Predaj()
+        public async Task<RedirectToActionResult> Predaj(string pitanje_0, string pitanje_1, string pitanje_2)
         {
-            Console.WriteLine("Hello!");
+            Console.WriteLine("EV GA");
+            Console.WriteLine(pitanje_0);
+            Console.WriteLine(pitanje_1);
+            Console.WriteLine(pitanje_2);
+            Console.WriteLine("TU JE");
+
+            int bodovi = 0;
+            if (pitanja[0].TacanOdg == pitanje_0) bodovi++;
+            if (pitanja[1].TacanOdg == pitanje_1) bodovi++;
+            if (pitanja[2].TacanOdg == pitanje_2) bodovi++;
+
+            Odgovor odg_0, odg_1, odg_2;
+
+            
+
             if (ModelState.IsValid)
             {
                 /*
