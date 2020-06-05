@@ -20,10 +20,14 @@ namespace E_Learning.Controllers
         }
 
         // GET: Odgovors
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? k)
         {
-            var applicationDbContext = _context.Odgovor.Include(o => o.Kviz).Include(o => o.Pitanje);
-            return View(await applicationDbContext.ToListAsync());
+            var applicationDbContext = _context.Odgovor.Include(o => o.Kviz);
+            if (!k.HasValue)
+            {
+                return View(await applicationDbContext.ToListAsync());
+            }
+            return View(await applicationDbContext.Where(o => o.KvizId == k).ToListAsync());
         }
 
         // GET: Odgovors/Details/5

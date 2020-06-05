@@ -216,10 +216,11 @@ namespace E_Learning.Controllers
             if (pitanja[1].TacanOdg == pitanje_1) bodovi++;
             if (pitanja[2].TacanOdg == pitanje_2) bodovi++;
 
+            Odgovor odg_0 = new Odgovor(), odg_1 = new Odgovor(), odg_2 = new Odgovor();
+            Kviz k = new Kviz();
+
             if (ModelState.IsValid)
             {
-                Odgovor odg_0 = new Odgovor(), odg_1 = new Odgovor(), odg_2 = new Odgovor();
-                Kviz k = new Kviz();
                 odg_0.Kviz = k;
                 odg_1.Kviz = k;
                 odg_2.Kviz = k;
@@ -259,7 +260,7 @@ namespace E_Learning.Controllers
 
             }
             //ViewData["OblastId"] = new SelectList(_context.Oblast, "Id", "Id", kurs.OblastId);
-            return RedirectToAction("Index", "Kvizs");
+            return RedirectToAction("Index", "Odgovors", new { k = k.Id }) ;
         }
     }
 }
