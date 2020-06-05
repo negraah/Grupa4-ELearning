@@ -13,14 +13,37 @@
 
     <style>
         .opis {
-            background-color: black; 
-            color: white;
+            border: 10px dashed black;
+            background-color:lightgray;
+            color: black;
             margin: 20px;
-            padding: 20px;
+            padding: 25px;
         }
 
-        .velika-slika{
-            width: 50%;
+        .velika-slika {
+            width: 100%;
+            height: auto;
+            object-position: 100% 50%;
+        }
+
+        .pocetni-tekst{
+            text-align:center;
+            color: indigo;
+        }
+
+        .opis-ispod-dobrodosli {
+            border: 2px solid black;
+            padding: 25px 50px 25px 100px;
+            background-color:mediumpurple;
+            
+        }
+
+        .opis-ispod-slike {
+        font-style:normal;
+        text-decoration-line:underline;
+        color: black;
+        text-align:center;
+        
         }
 
         </style>
@@ -30,28 +53,36 @@
 
 <body>
   
-    <div class="text-center">
+    <div class="pocetni-tekst">
         <h1 style="font-family:Cambria, Cochin, Georgia, Times, Times New Roman, serif">Dobro došli na ELearning aplikaciju :)</h1>
         <hr>
-        <p style="font-family:'Sitka Display'"><i> "Mogućnost učenja je dar, sposobnost učenja vještina, a odlučnost za učenjem je izbor." - B. Herbert</i></p>
     </div>
 
-    <div class="velika-slika">
-        <img src="https://previews.123rf.com/images/ontsunan/ontsunan1812/ontsunan181200044/118386299-online-education-training-course-tutorials-e-learning-smart-knowledge-cartoon-miniature-illustration.jpg" alt="">
-        <h2>Svakodnevno pratite našu aplikaciju i proširujte svoje znanje.</h2>
-    </div>
+    <div class="opis-ispod-dobrodosli">
+        <h3 style="font-family:'Sitka Display'"><i> "Mogućnost učenja je dar, sposobnost učenja vještina, a odlučnost za učenjem je izbor." - B. Herbert</i></h3>
+        </div>
 
-    <br>
-    <br>
-    <div class=" opis">
-        <h2 style="border: 3px green;">Oblasti</h2>
-        <p>Izaberite jedan od tri ponuđene oblasti. U budućnosti planiramo još oblasti dodavati. </p>
-    </div>
 
-    <div class=" opis">
-        <h2>Kursevi</h2>
-        <p>Izaberite jedan od ponuđenih kurseva.</p>
-    </div>
+        <div class="velika-slika">
+            <img src="https://previews.123rf.com/images/ontsunan/ontsunan1812/ontsunan181200044/118386299-online-education-training-course-tutorials-e-learning-smart-knowledge-cartoon-miniature-illustration.jpg" width="1160" height="745" >
+        </div>
+
+    <div class="opis-ispod-slike">
+        <h3>Svakodnevno pratite našu aplikaciju i proširujte svoje znanje.</h3>
+        </div>
+
+
+            <br>
+            <br>
+            <div class=" opis">
+                <h2 style="border: 3px green;">Oblasti</h2>
+                <p>Izaberite jedan od tri ponuđene oblasti. U budućnosti planiramo još oblasti dodavati. </p>
+            </div>
+
+            <div class=" opis">
+                <h2>Kursevi</h2>
+                <p>Izaberite jedan od ponuđenih kurseva.</p>
+            </div>
 
 
 </body>
