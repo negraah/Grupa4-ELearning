@@ -16,7 +16,10 @@
                 @Html.DisplayNameFor(model => model.JeLiTacno)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Pitanje)
+                @Html.DisplayNameFor(model => model.Pitanje.PitanjeTekst)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pitanje.TacanOdg)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Kviz)
@@ -31,7 +34,10 @@
                 @Html.DisplayFor(modelItem => item.JeLiTacno)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Pitanje.PitanjeId)
+                @Html.DisplayFor(modelItem => item.Pitanje.PitanjeTekst)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pitanje.TacanOdg)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Kviz.Id)

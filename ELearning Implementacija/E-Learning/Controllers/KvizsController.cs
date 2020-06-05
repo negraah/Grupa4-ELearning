@@ -241,10 +241,16 @@ namespace E_Learning.Controllers
                 */
                 k.Rezultat = bodovi;
                 k.KorisnikId = KorisniksController.Trenutni.Id;
-
+                
                 odg_0.PitanjeId = pitanja[0].PitanjeId;
                 odg_1.PitanjeId = pitanja[1].PitanjeId;
                 odg_2.PitanjeId = pitanja[2].PitanjeId;
+
+                /*
+                odg_0.Pitanje = pitanja[0];
+                odg_1.Pitanje = pitanja[1];
+                odg_2.Pitanje = pitanja[2];
+                */
 
                 odg_0.JeLiTacno = pitanja[0].TacanOdg == pitanje_0;
                 odg_1.JeLiTacno = pitanja[1].TacanOdg == pitanje_1;

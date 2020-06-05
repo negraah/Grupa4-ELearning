@@ -22,7 +22,7 @@ namespace E_Learning.Controllers
         // GET: Odgovors
         public async Task<IActionResult> Index(int? k)
         {
-            var applicationDbContext = _context.Odgovor.Include(o => o.Kviz);
+            var applicationDbContext = _context.Odgovor.Include(o => o.Kviz).Include(o => o.Pitanje);
             if (!k.HasValue)
             {
                 return View(await applicationDbContext.ToListAsync());
