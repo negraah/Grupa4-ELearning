@@ -216,17 +216,41 @@ namespace E_Learning.Controllers
             if (pitanja[1].TacanOdg == pitanje_1) bodovi++;
             if (pitanja[2].TacanOdg == pitanje_2) bodovi++;
 
-            Odgovor odg_0, odg_1, odg_2;
-
-            
-
             if (ModelState.IsValid)
             {
-                /*
-                _context.Add(kurs);
+                Odgovor odg_0 = new Odgovor(), odg_1 = new Odgovor(), odg_2 = new Odgovor();
+                Kviz k = new Kviz();
+
+                int id = _context.Kviz.Aggregate((k1, k2) => k1.Id > k2.Id ? k1 : k2).Id + 1;
+                k.Id = id;
+                odg_0.KvizId = id;
+                odg_1.KvizId = id;
+                odg_2.KvizId = id;
+
+                id = _context.Odgovor.Aggregate((k1, k2) => k1.Id > k2.Id ? k1 : k2).Id + 1;
+                odg_0.Id = id + 0;
+                odg_1.Id = id + 1;
+                odg_2.Id = id + 2;
+
+                k.Rezultat = bodovi;
+                k.KorisnikId = KorisniksController.Trenutni.Id;
+
+                odg_0.PitanjeId = pitanja[0].PitanjeId;
+                odg_1.PitanjeId = pitanja[1].PitanjeId;
+                odg_2.PitanjeId = pitanja[2].PitanjeId;
+
+                odg_0.JeLiTacno = pitanja[0].TacanOdg == pitanje_0;
+                odg_1.JeLiTacno = pitanja[1].TacanOdg == pitanje_1;
+                odg_2.JeLiTacno = pitanja[2].TacanOdg == pitanje_2;
+
+                _context.Add(k);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-                */
+
+                _context.Add(odg_0);
+                _context.Add(odg_1);
+                _context.Add(odg_2);
+                await _context.SaveChangesAsync();
+
             }
             //ViewData["OblastId"] = new SelectList(_context.Oblast, "Id", "Id", kurs.OblastId);
             return RedirectToAction("Index", "Kvizs");
