@@ -220,18 +220,24 @@ namespace E_Learning.Controllers
             {
                 Odgovor odg_0 = new Odgovor(), odg_1 = new Odgovor(), odg_2 = new Odgovor();
                 Kviz k = new Kviz();
-
-                int id = _context.Kviz.Aggregate((k1, k2) => k1.Id > k2.Id ? k1 : k2).Id + 1;
+                odg_0.Kviz = k;
+                odg_1.Kviz = k;
+                odg_2.Kviz = k;
+                /*
+                Kviz dummy_k = new Kviz(); dummy_k.Id = 0;
+                Odgovor dummy_o = new Odgovor(); dummy_o.Id = 0;
+                
+                int id = _context.Kviz.ToArray().Aggregate(seed: dummy_k, func: ((k1, k2) => k1.Id > k2.Id ? k1 : k2)).Id + 1;
                 k.Id = id;
                 odg_0.KvizId = id;
                 odg_1.KvizId = id;
                 odg_2.KvizId = id;
 
-                id = _context.Odgovor.Aggregate((k1, k2) => k1.Id > k2.Id ? k1 : k2).Id + 1;
+                id = _context.Odgovor.ToArray().Aggregate(seed: dummy_o, func: ((k1, k2) => k1.Id > k2.Id ? k1 : k2)).Id + 1;
                 odg_0.Id = id + 0;
                 odg_1.Id = id + 1;
                 odg_2.Id = id + 2;
-
+                */
                 k.Rezultat = bodovi;
                 k.KorisnikId = KorisniksController.Trenutni.Id;
 
