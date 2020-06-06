@@ -199,9 +199,15 @@ namespace E_Learning.Controllers
 
         public async Task<IActionResult> DajLjestvicu()
         {
-            int bodovi = DajBodove(KorisniksController.Trenutni, LekcijasController.trenutniKurs);
-            Console.WriteLine(bodovi);
-            return RedirectToAction("VecRadio", "NotUpisan");
+            List < Korisnik > korisniks = await _context.Korisnik.ToListAsync();
+            List<Tuple<Korisnik, int>> ranking = new List<Tuple<Korisnik, int>>();
+            foreach(Korisnik k in korisniks)
+            {
+                var t = new Tuple<Korisnik, int>(k, DajBodove(k, LekcijasController.trenutniKurs));
+
+                ranking.Add(t);
+            }
+            return View(ranking);
         }
 
         public int? DajKursKviza(Kviz k)
