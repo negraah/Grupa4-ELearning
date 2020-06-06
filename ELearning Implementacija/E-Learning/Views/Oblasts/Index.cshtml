@@ -1,35 +1,107 @@
 ﻿@model IEnumerable<E_Learning.Models.Oblast>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Oblasti";
 }
 
-<h1>Oblasti</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Naziv)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                <a asp-action="Open" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Naziv)</a>
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<head>
+
+    <style>
+
+        .pocetni-prikaz {
+            color: black;
+            text-align: left;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        table {
+            width: 100%;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 15px;
+            text-align: center;
+        }
+
+        table#t01 tr:nth-child(even) {
+            background-color: #eee;
+        }
+
+        table#t01 tr:nth-child(odd) {
+            background-color: #fff;
+        }
+
+        table#t01 th {
+            background-color: black;
+            color: white;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <br>
+
+    <div class="pocetni-prikaz">
+        <h1>Oblasti</h1>
+    </div>
+
+    <br>
+
+    @if (E_Learning.Controllers.KorisniksController.Trenutni == null){
+        <p>Klikom na oblast koju želite, otvorit će Vam se kursevi koji su dostupni.</p>}
+    else if (E_Learning.Controllers.KorisniksController.Trenutni.Pristup == 2){
+        <p>
+            <a asp-action="Create">Dodaj novu oblast</a>
+        </p>
+    }
+    else if (E_Learning.Controllers.KorisniksController.Trenutni.Pristup == 1){
+        <p>Klikom na oblast koju želite, otvorit će Vam se kursevi koji su dostupni.</p>
+    }
+
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Izaberite oblast koju želite pohađati</th>
+                <th>Opis oblasti</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <a asp-action="Open" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Naziv)</a>
+                    </td>
+
+                    @if (E_Learning.Controllers.KorisniksController.Trenutni == null)
+                    {
+                       
+                        <th> Matematika je egzaktna(tačna, nedvojbena) nauka koja izučava aksiomatski definisane apstraktne strukture koristeći matematičku logiku. Trenutno na raspolaganju imamo kurseve "Kombinatorika" i "Polinomi". </th>
+                    }
+                    else if (E_Learning.Controllers.KorisniksController.Trenutni.Pristup == 2)
+                    {
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id">Promijeni</a> |
+                            <a asp-action="Details" asp-route-id="@item.Id">Detalji</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Id">Obriši</a>
+                        </td>
+                    }
+
+                    }
+
+                </tr>
+
+            }
+    </table>
+
+
+</body>
+
