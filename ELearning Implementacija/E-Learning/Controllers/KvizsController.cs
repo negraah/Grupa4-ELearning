@@ -224,6 +224,8 @@ namespace E_Learning.Controllers
             if (pitanja[1].TacanOdg == pitanje_1) bodovi++;
             if (pitanja[2].TacanOdg == pitanje_2) bodovi++;
 
+            if (is_daily == false) bodovi = 0;
+
             Odgovor odg_0 = new Odgovor(), odg_1 = new Odgovor(), odg_2 = new Odgovor();
             Kviz k = new Kviz();
 
