@@ -13,7 +13,20 @@
             text-align: left;
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         }
+        table#t01 tr:nth-child(even) {
+            background-color: white;
+        }
 
+        table#t01 tr:nth-child(odd) {
+            background-color: white;
+            border: dashed;
+        }
+
+        table#t01 th {
+            background-color: #1f74bf;
+            color: black;
+            border: dotted;
+        }
 
     </style>
 
@@ -30,11 +43,11 @@
 
     @if (E_Learning.Controllers.KorisniksController.Trenutni == null)
     {
-        <p><i>Klikom na kurs na koji želite, otvorit će Vam se lekcije koje su trentno dostupne.</i></p>
+        <p><i>Klikom na kurs koji želite pohađati, otvorit će Vam se lekcije koje su trentno dostupne. Ukoliko se niste upisali, imate priliku sada da se upišete.</i></p>
     }
     else if (E_Learning.Controllers.KorisniksController.Trenutni.Pristup == 1)
     {
-        <p><i>Klikom na kurs na koji želite, otvorit će Vam se lekcije koje su trentno dostupne.</i></p>
+        <p><i>Klikom na kurs na koji želite, otvorit će Vam se lekcije koje su trentno dostupne. Ukoliko se niste upisali, imate priliku sada da se upišete.</i></p>
     }
     else if (E_Learning.Controllers.KorisniksController.Trenutni.Pristup == 2)
     {
@@ -42,8 +55,8 @@
             <a asp-action="Create">Dodaj novi kurs</a>
         </p>
     }
-
-    <table class="table">
+    <br>
+    <table id="t01">
         <thead>
             <tr>
                 <th>
@@ -58,25 +71,39 @@
                 <th></th>
             </tr>
         </thead>
+
+
         <tbody>
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>
-                        <a asp-action="Open" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Naziv)</a>
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.PotrebanFaks)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Oblast.Id)
-                    </td>
+            <tr>
+                <td>
+                    <a asp-action="Open" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Naziv)</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PotrebanFaks)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Oblast.Id)
+                </td>
+
+
+                @if (E_Learning.Controllers.KorisniksController.Trenutni == null)
+                {
+                }
+                else if (E_Learning.Controllers.KorisniksController.Trenutni.Pristup == 2)
+                {
                     <td>
                         <a asp-action="Upisi" asp-route-id="@item.Id">Upiši</a> |
                         <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                         <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                         <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                     </td>
+                }
+                else
+                {
+
+                }
                 </tr>
             }
         </tbody>
