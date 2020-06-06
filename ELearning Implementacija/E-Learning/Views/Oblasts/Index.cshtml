@@ -28,17 +28,20 @@
         }
 
         table#t01 tr:nth-child(even) {
-            background-color: #eee;
+            background-color: white;
         }
 
         table#t01 tr:nth-child(odd) {
-            background-color: #fff;
+            background-color: white;
+            border:dashed:
         }
 
         table#t01 th {
-            background-color: black;
-            color: white;
+            background-color: #a26ec4;
+            color: black;
+            border:dotted;
         }
+
 
     </style>
 
@@ -57,7 +60,7 @@
 
     @if (E_Learning.Controllers.KorisniksController.Trenutni == null)
     {
-        <p>Klikom na oblast koju želite, otvorit će Vam se kursevi koji su dostupni.</p>
+        <p><i>Klikom na oblast koju želite, otvorit će Vam se kursevi koji su dostupni.</i></p>
     }else if (E_Learning.Controllers.KorisniksController.Trenutni.Pristup == 2)
     {
         <p>
@@ -69,16 +72,16 @@
         <p>Klikom na oblast koju želite, otvorit će Vam se kursevi koji su dostupni.</p>
     }
 
-
-    <table class="table">
-        <tbody>
+    <br>
+    <table id="t01">
+        
             <tr>
                 <th>Izaberite oblast koju želite pohađati</th>
                 <th>Opis oblasti</th>
             </tr>
-
-            @foreach (var item in Model)
-            {
+            <tbody>
+    @foreach (var item in Model)
+    {
         <tr>
             <td>
                 <a asp-action="Open" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Naziv)</a>
@@ -87,7 +90,7 @@
             @if (E_Learning.Controllers.KorisniksController.Trenutni == null)
             {
 
-                <th> @Html.DisplayFor(modelItem => item.Opis) </th>
+                <td> @Html.DisplayFor(modelItem => item.Opis) </td>
             }
             else if (E_Learning.Controllers.KorisniksController.Trenutni.Pristup == 2)
             {
@@ -102,12 +105,13 @@
                 <th> @Html.DisplayFor(modelItem => item.Opis) </th>
             }
 
-            
+
 
         </tr>
 
-            }
-    </table>
+    }
+                </tbody>
+</table>
 
 
 </body>
