@@ -17,5 +17,10 @@ namespace E_Learning.Controllers
         {
             return View();
         }
+
+        public IActionResult VecRadio()
+        {
+            return View();
+        }
     }
 }

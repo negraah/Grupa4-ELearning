@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using E_Learning.Data;
 using E_Learning.Models;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace E_Learning.Controllers
 {
@@ -14,13 +15,21 @@ namespace E_Learning.Controllers
     {
         private readonly ApplicationDbContext _context;
         public static List<Pitanje> pitanja;
-        private static Random rng = new Random();
+        public static Random rng = new Random();
         private static List<List<String>> odgovori_tekst = null;
+        public static bool is_daily = false;
 
         public KvizsController(ApplicationDbContext context)
         {
             _context = context;
         }
+
+        public static int getDan()
+        { 
+            var moment = DateTime.UtcNow;
+            return moment.Day + moment.Month * 100 + moment.Year * 100000;
+        }
+
 
         public static List<T> Shuffle<T>(List<T> list)
         {
@@ -202,19 +211,72 @@ namespace E_Learning.Controllers
 
         // POST: Predaj
         [HttpPost]
-        public async Task<RedirectToActionResult> Predaj()
+        public async Task<RedirectToActionResult> Predaj(string pitanje_0, string pitanje_1, string pitanje_2)
         {
-            Console.WriteLine("Hello!");
+            Console.WriteLine("EV GA");
+            Console.WriteLine(pitanje_0);
+            Console.WriteLine(pitanje_1);
+            Console.WriteLine(pitanje_2);
+            Console.WriteLine("TU JE");
+
+            int bodovi = 0;
+            if (pitanja[0].TacanOdg == pitanje_0) bodovi++;
+            if (pitanja[1].TacanOdg == pitanje_1) bodovi++;
+            if (pitanja[2].TacanOdg == pitanje_2) bodovi++;
+
+            if (is_daily == false) bodovi = 0;
+
+            Odgovor odg_0 = new Odgovor(), odg_1 = new Odgovor(), odg_2 = new Odgovor();
+            Kviz k = new Kviz();
+
             if (ModelState.IsValid)
             {
+                odg_0.Kviz = k;
+                odg_1.Kviz = k;
+                odg_2.Kviz = k;
                 /*
-                _context.Add(kurs);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                Kviz dummy_k = new Kviz(); dummy_k.Id = 0;
+                Odgovor dummy_o = new Odgovor(); dummy_o.Id = 0;
+                
+                int id = _context.Kviz.ToArray().Aggregate(seed: dummy_k, func: ((k1, k2) => k1.Id > k2.Id ? k1 : k2)).Id + 1;
+                k.Id = id;
+                odg_0.KvizId = id;
+                odg_1.KvizId = id;
+                odg_2.KvizId = id;
+
+                id = _context.Odgovor.ToArray().Aggregate(seed: dummy_o, func: ((k1, k2) => k1.Id > k2.Id ? k1 : k2)).Id + 1;
+                odg_0.Id = id + 0;
+                odg_1.Id = id + 1;
+                odg_2.Id = id + 2;
                 */
+                k.Rezultat = bodovi;
+                k.KorisnikId = KorisniksController.Trenutni.Id;
+                
+                odg_0.PitanjeId = pitanja[0].PitanjeId;
+                odg_1.PitanjeId = pitanja[1].PitanjeId;
+                odg_2.PitanjeId = pitanja[2].PitanjeId;
+
+                /*
+                odg_0.Pitanje = pitanja[0];
+                odg_1.Pitanje = pitanja[1];
+                odg_2.Pitanje = pitanja[2];
+                */
+
+                odg_0.JeLiTacno = pitanja[0].TacanOdg == pitanje_0;
+                odg_1.JeLiTacno = pitanja[1].TacanOdg == pitanje_1;
+                odg_2.JeLiTacno = pitanja[2].TacanOdg == pitanje_2;
+
+                _context.Add(k);
+                await _context.SaveChangesAsync();
+
+                _context.Add(odg_0);
+                _context.Add(odg_1);
+                _context.Add(odg_2);
+                await _context.SaveChangesAsync();
+
             }
             //ViewData["OblastId"] = new SelectList(_context.Oblast, "Id", "Id", kurs.OblastId);
-            return RedirectToAction("Index", "Kvizs");
+            return RedirectToAction("Index", "Odgovors", new { k = k.Id }) ;
         }
     }
 }

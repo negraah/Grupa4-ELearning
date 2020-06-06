@@ -15,7 +15,9 @@ namespace E_Learning.Models
 
 		// 0 - obicni, 1 - faks mejl, 2 - admin
 		public int Pristup { get; set; }
-		
+
+		public int ZadnjiDaily{ get; set; }
+
 
 		public List<Upisivanje> Upisivanje { get; set; }
 	}
