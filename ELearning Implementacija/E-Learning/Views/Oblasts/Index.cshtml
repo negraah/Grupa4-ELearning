@@ -55,14 +55,17 @@
 
     <br>
 
-    @if (E_Learning.Controllers.KorisniksController.Trenutni == null){
-        <p>Klikom na oblast koju želite, otvorit će Vam se kursevi koji su dostupni.</p>}
-    else if (E_Learning.Controllers.KorisniksController.Trenutni.Pristup == 2){
+    @if (E_Learning.Controllers.KorisniksController.Trenutni == null)
+    {
+        <p>Klikom na oblast koju želite, otvorit će Vam se kursevi koji su dostupni.</p>
+    }else if (E_Learning.Controllers.KorisniksController.Trenutni.Pristup == 2)
+    {
         <p>
             <a asp-action="Create">Dodaj novu oblast</a>
         </p>
     }
-    else if (E_Learning.Controllers.KorisniksController.Trenutni.Pristup == 1){
+    else if (E_Learning.Controllers.KorisniksController.Trenutni.Pristup == 1)
+    {
         <p>Klikom na oblast koju želite, otvorit će Vam se kursevi koji su dostupni.</p>
     }
 
@@ -76,28 +79,32 @@
 
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>
-                        <a asp-action="Open" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Naziv)</a>
-                    </td>
+        <tr>
+            <td>
+                <a asp-action="Open" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Naziv)</a>
+            </td>
 
-                    @if (E_Learning.Controllers.KorisniksController.Trenutni == null)
-                    {
-                       
-                        <th> Matematika je egzaktna(tačna, nedvojbena) nauka koja izučava aksiomatski definisane apstraktne strukture koristeći matematičku logiku. Trenutno na raspolaganju imamo kurseve "Kombinatorika" i "Polinomi". </th>
-                    }
-                    else if (E_Learning.Controllers.KorisniksController.Trenutni.Pristup == 2)
-                    {
-                        <td>
-                            <a asp-action="Edit" asp-route-id="@item.Id">Promijeni</a> |
-                            <a asp-action="Details" asp-route-id="@item.Id">Detalji</a> |
-                            <a asp-action="Delete" asp-route-id="@item.Id">Obriši</a>
-                        </td>
-                    }
+            @if (E_Learning.Controllers.KorisniksController.Trenutni == null)
+            {
 
-                    }
+                <th> @Html.DisplayFor(modelItem => item.Opis) </th>
+            }
+            else if (E_Learning.Controllers.KorisniksController.Trenutni.Pristup == 2)
+            {
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Promijeni</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Detalji</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Obriši</a>
+                </td>
+            }
+            else
+            {
+                <th> @Html.DisplayFor(modelItem => item.Opis) </th>
+            }
 
-                </tr>
+            
+
+        </tr>
 
             }
     </table>
