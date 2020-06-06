@@ -196,5 +196,10 @@ namespace E_Learning.Controllers
             KvizsController.pitanja = pitanja;
             return RedirectToAction("Izrada", "Kvizs");
         }
+
+        public async Task<IActionResult> DajLjestvicu()
+        {
+            return RedirectToAction("VecRadio", "NotUpisan");
+        }
     }
 }
