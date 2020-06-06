@@ -68,6 +68,9 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Oblast)
                 </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Opis)
+                    </th>
                 <th></th>
             </tr>
         </thead>
@@ -90,6 +93,7 @@
 
                 @if (E_Learning.Controllers.KorisniksController.Trenutni == null)
                 {
+                    <td> @Html.DisplayFor(modelItem => item.Opis) </td>
                 }
                 else if (E_Learning.Controllers.KorisniksController.Trenutni.Pristup == 2)
                 {
@@ -102,9 +106,13 @@
                 }
                 else
                 {
+                    <td>
+                        <a asp-action="Upisi" asp-route-id="@item.Id">Upiši</a>
+                    @Html.DisplayFor(modelItem => item.Opis) 
+                    </td>
 
                 }
-                </tr>
+            </tr>
             }
         </tbody>
     </table>

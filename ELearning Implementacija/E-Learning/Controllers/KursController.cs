@@ -95,7 +95,7 @@ namespace E_Learning.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Naziv,PotrebanFaks,OblastId")] Kurs kurs)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Naziv,Opis,PotrebanFaks,OblastId")] Kurs kurs)
         {
             if (id != kurs.Id)
             {

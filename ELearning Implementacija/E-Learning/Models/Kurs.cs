@@ -17,5 +17,7 @@ namespace E_Learning.Models
 
 		public List<Lekcija> Lekcije { get; set; }
 		public List<Upisivanje> Upisivanje { get; set; }
-	}
+
+		public string Opis { get; set; }
+    }
 }
