@@ -180,10 +180,17 @@ namespace E_Learning.Controllers
 
         public async Task<IActionResult> PokreniDaily()
         {
+            if(KorisniksController.Trenutni.ZadnjiDaily == KvizsController.getDan())
+            {
+                return RedirectToAction("VecRadio", "NotUpisan");
+            }
             Console.WriteLine("HI!");
             List<Pitanje> pitanja = await _context.Pitanje.Where(p => p.KursId == trenutniKurs.Id).ToListAsync();
             KvizsController.is_daily = true;
             KvizsController.rng = new Random(Seed: KvizsController.getDan());
+            KorisniksController.Trenutni.ZadnjiDaily = KvizsController.getDan();
+            _context.Update(KorisniksController.Trenutni);
+            await _context.SaveChangesAsync();
             pitanja = KvizsController.Shuffle(pitanja);
             pitanja = pitanja.GetRange(0, 3);
             KvizsController.pitanja = pitanja;
