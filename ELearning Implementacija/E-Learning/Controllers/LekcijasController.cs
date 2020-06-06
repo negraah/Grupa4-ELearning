@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Net;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using E_Learning.Data;
 using E_Learning.Models;
+using System.Security.Cryptography.X509Certificates;
 
 namespace E_Learning.Controllers
 {
@@ -232,8 +234,17 @@ namespace E_Learning.Controllers
                     sum += i.Rezultat;
             }
 
-
             return sum;
+        }
+
+
+
+        public async Task<IActionResult> Open(int Id)
+        {
+            string lekcija_string = (await _context.Lekcija.FirstOrDefaultAsync(x => x.Id == Id)).Ime;
+            lekcija_string = lekcija_string.Replace(' ', '_');
+            Console.WriteLine(lekcija_string);
+            return RedirectToAction(lekcija_string, "Resursi");
         }
     }
 }

@@ -7,13 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Views\NewFolder\**" />
-    <Content Remove="Views\NewFolder\**" />
-    <EmbeddedResource Remove="Views\NewFolder\**" />
-    <None Remove="Views\NewFolder\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Remove="Data\Migrations\20200517234600_init.cs" />
     <Compile Remove="Data\Migrations\20200517234600_init.Designer.cs" />
     <Compile Remove="Data\Migrations\20200517234724_init.cs" />
