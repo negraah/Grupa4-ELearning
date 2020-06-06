@@ -14,36 +14,67 @@
     <style>
         .opis {
             border: 10px dashed black;
-            background-color:lightgray;
+            background-color: #e1e1ea;
             color: black;
             margin: 20px;
             padding: 25px;
         }
 
-        .velika-slika {
-            width: 100%;
-            height: auto;
-            object-position: 100% 50%;
+        * {
+            box-sizing: border-box;
+        }
+
+        .column {
+            float: left;
+            width: 33.33%;
+            padding: 5px;
+            object-fit:cover;
+            height:100%;
+        }
+
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
         }
 
         .pocetni-tekst{
             text-align:center;
-            color: indigo;
+            color: #577;
         }
 
         .opis-ispod-dobrodosli {
             border: 2px solid black;
             padding: 25px 50px 25px 100px;
-            background-color:mediumpurple;
-            
+            background-color: #9097FE;
         }
 
         .opis-ispod-slike {
         font-style:normal;
-        text-decoration-line:underline;
         color: black;
         text-align:center;
         
+        }
+
+        div.gallery {
+            margin: 47px;
+            border: 1px solid #ccc;
+            float: left;
+            width: 180px;
+        }
+
+            div.gallery:hover {
+                border: 1px solid #777;
+            }
+
+            div.gallery img {
+                width: 100%;
+               height: auto;
+            }
+
+        div.desc {
+            padding: 15px;
+            text-align: center;
         }
 
         </style>
@@ -52,38 +83,88 @@
 
 
 <body>
-  
+
     <div class="pocetni-tekst">
         <h1 style="font-family:Cambria, Cochin, Georgia, Times, Times New Roman, serif">Dobro došli na ELearning aplikaciju :)</h1>
         <hr>
     </div>
 
+    <br>
     <div class="opis-ispod-dobrodosli">
         <h3 style="font-family:'Sitka Display'"><i> "Mogućnost učenja je dar, sposobnost učenja vještina, a odlučnost za učenjem je izbor." - B. Herbert</i></h3>
-        </div>
+    </div>
 
+    <br>
 
-        <div class="velika-slika">
-            <img src="https://previews.123rf.com/images/ontsunan/ontsunan1812/ontsunan181200044/118386299-online-education-training-course-tutorials-e-learning-smart-knowledge-cartoon-miniature-illustration.jpg" width="1160" height="745" >
+    <div class="row">
+        <div class="column">
+                <img src="https://cdn.elearningindustry.com/wp-content/uploads/2017/04/4-types-of-elearning-solutions-to-boost-your-business.jpeg" alt="ELearning" style="width:100%">
+            </div>
+        <div class="column">
+                <img src="https://image.freepik.com/free-photo/e-learning-student-university-concept_31965-2338.jpg" alt="ELearning" style="width:100%">
         </div>
+            <div class="column">
+                <img src="https://image.freepik.com/free-photo/e-learning-student-university-concept_31965-2557.jpg" alt="ELearning" style="width:100%">
+            </div>
+        </div>
+    <hr>
 
     <div class="opis-ispod-slike">
-        <h3>Svakodnevno pratite našu aplikaciju i proširujte svoje znanje.</h3>
+        <h2><i>Svakodnevno pratite našu aplikaciju i proširujte svoje znanje.</i></h2>
+    </div>
+
+
+    <br>
+    <br>
+    <div class=" opis">
+        <h2 style="border: 3px green;">Oblasti</h2>
+        <p>Izaberite jedan od tri ponuđene oblasti. U budućnosti planiramo još oblasti dodavati. </p>
+    </div>
+
+    <div class=" opis">
+        <h2>Kursevi</h2>
+        <p>Izaberite jedan od ponuđenih kurseva.</p>
+    </div>
+
+    <hr>
+    <br>
+
+    <div class="opis-ispod-slike">
+        <h2><i>Od najboljih trebamo učiti. Evo nekoliko citata koje vrijedi pomenuti.</i></h2>
+    </div>
+
+    <div class="gallery">
+        <a target="_blank" href="https://ichef.bbci.co.uk/news/660/media/images/82399000/jpg/_82399978_75952740.jpg">
+            <img src="https://ichef.bbci.co.uk/news/660/media/images/82399000/jpg/_82399978_75952740.jpg" alt="Albert Einstein" width="600" height="400">
+        </a>
+        <div class="desc">"Bilo koja budala može znati. Važno je razumjeti." - Albert Einstein</div>
+    </div>
+
+
+    <div class="gallery">
+        <a target="_blank" href="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Oprah_in_2014.jpg/452px-Oprah_in_2014.jpg">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Oprah_in_2014.jpg/452px-Oprah_in_2014.jpg" alt="Oprah Winfrey" width="600" height="400">
+        </a>
+        <div class="desc">"Edukacija je ključ za otključavanje svijeta, pasoš za slobodu."- Oprah Winfrey</div>
+    </div>
+
+    <div class="gallery">
+        <a target="_blank" href="https://upload.wikimedia.org/wikipedia/commons/c/ca/Bruce_Lee_1973.jpg">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Bruce_Lee_1973.jpg" alt="Bruce Lee" width="600" height="400">
+        </a>
+        <div class="desc">
+            "Znati nešto nije dovoljno - trebamo primijeniti. Želja nije dovoljna- moramo raditi." - Bruce Lee
         </div>
+    </div>
 
-
-            <br>
-            <br>
-            <div class=" opis">
-                <h2 style="border: 3px green;">Oblasti</h2>
-                <p>Izaberite jedan od tri ponuđene oblasti. U budućnosti planiramo još oblasti dodavati. </p>
-            </div>
-
-            <div class=" opis">
-                <h2>Kursevi</h2>
-                <p>Izaberite jedan od ponuđenih kurseva.</p>
-            </div>
-
+    <div class="gallery">
+        <a target="_blank" href="https://upload.wikimedia.org/wikipedia/commons/7/7a/Mahatma-Gandhi%2C_studio%2C_1931.jpg">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Mahatma-Gandhi%2C_studio%2C_1931.jpg" alt="Mahatma Gandhi" width="600" height="400">
+        </a>
+        <div class="desc">
+            "Živi kao da ćeš umrijeti sutra. Uči kao da ćeš živjeti zauvijek." - Mahatma Gandhi
+        </div>
+    </div>
 
 </body>
 
