@@ -199,7 +199,35 @@ namespace E_Learning.Controllers
 
         public async Task<IActionResult> DajLjestvicu()
         {
+            int bodovi = DajBodove(KorisniksController.Trenutni, LekcijasController.trenutniKurs);
+            Console.WriteLine(bodovi);
             return RedirectToAction("VecRadio", "NotUpisan");
+        }
+
+        public int? DajKursKviza(Kviz k)
+        {
+            Odgovor o = _context.Odgovor.FirstOrDefault(x => x.Kviz == k & x.Pitanje != null);
+            if (o != null)
+            {
+                Pitanje p = _context.Pitanje.FirstOrDefault(x => x.PitanjeId == o.PitanjeId);
+                return p.KursId;
+            }
+            return null;
+        }
+
+        private int DajBodove(Korisnik korisnik, Kurs kurs)
+        {
+            var x = _context.Kviz.Where(k => k.Korisnik == korisnik /*& DajKursKviza(k) == kurs*/);
+            int sum = 0;
+            var l = x.ToList();
+            foreach (var i in l)
+            {
+                if(DajKursKviza(i) == kurs.Id)
+                    sum += i.Rezultat;
+            }
+
+
+            return sum;
         }
     }
 }
