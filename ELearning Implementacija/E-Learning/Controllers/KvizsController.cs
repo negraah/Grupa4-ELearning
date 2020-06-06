@@ -15,13 +15,21 @@ namespace E_Learning.Controllers
     {
         private readonly ApplicationDbContext _context;
         public static List<Pitanje> pitanja;
-        private static Random rng = new Random();
+        public static Random rng = new Random();
         private static List<List<String>> odgovori_tekst = null;
+        public static bool is_daily = false;
 
         public KvizsController(ApplicationDbContext context)
         {
             _context = context;
         }
+
+        public static int getDan()
+        { 
+            var moment = DateTime.UtcNow;
+            return moment.Day + moment.Month * 100 + moment.Year * 100000;
+        }
+
 
         public static List<T> Shuffle<T>(List<T> list)
         {

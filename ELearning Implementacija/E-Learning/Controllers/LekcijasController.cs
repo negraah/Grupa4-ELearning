@@ -170,6 +170,7 @@ namespace E_Learning.Controllers
         {
             Console.WriteLine("HI!");
             List<Pitanje> pitanja = await _context.Pitanje.Where(p => p.KursId == trenutniKurs.Id).ToListAsync();
+            KvizsController.is_daily = false;
             pitanja = KvizsController.Shuffle(pitanja);
             pitanja = pitanja.GetRange(0, 3);
             KvizsController.pitanja = pitanja;
