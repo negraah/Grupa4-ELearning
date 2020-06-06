@@ -1,48 +1,90 @@
 ﻿@model IEnumerable<E_Learning.Models.Kurs>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Kurs";
 }
 
-<h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Naziv)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PotrebanFaks)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Oblast)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                <a asp-action="Open" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Naziv)</a>
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PotrebanFaks)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Oblast.Id)
-            </td>
-            <td>
-                <a asp-action="Upisi" asp-route-id="@item.Id">Upiši</a> |
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+<head>
+    <style>
+        .pocetni-prikaz {
+            color: black;
+            text-align: left;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+
+    </style>
+
+
+    </head>
+
+
+
+<body>
+    <div class="pocetni-prikaz">
+        <h1>Kursevi</h1>
+    </div>
+    <br>
+
+    @if (E_Learning.Controllers.KorisniksController.Trenutni == null)
+    {
+        <p><i>Klikom na kurs na koji želite, otvorit će Vam se lekcije koje su trentno dostupne.</i></p>
+    }
+    else if (E_Learning.Controllers.KorisniksController.Trenutni.Pristup == 1)
+    {
+        <p><i>Klikom na kurs na koji želite, otvorit će Vam se lekcije koje su trentno dostupne.</i></p>
+    }
+    else if (E_Learning.Controllers.KorisniksController.Trenutni.Pristup == 2)
+    {
+        <p>
+            <a asp-action="Create">Dodaj novi kurs</a>
+        </p>
+    }
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Naziv)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PotrebanFaks)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Oblast)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <a asp-action="Open" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Naziv)</a>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PotrebanFaks)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Oblast.Id)
+                    </td>
+                    <td>
+                        <a asp-action="Upisi" asp-route-id="@item.Id">Upiši</a> |
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+
+</body>
+
+
+
