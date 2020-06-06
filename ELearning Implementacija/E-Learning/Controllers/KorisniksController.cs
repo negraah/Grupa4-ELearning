@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using E_Learning.Data;
 using E_Learning.Models;
+using SQLitePCL;
 
 namespace E_Learning.Controllers
 {

@@ -196,5 +196,44 @@ namespace E_Learning.Controllers
             KvizsController.pitanja = pitanja;
             return RedirectToAction("Izrada", "Kvizs");
         }
+
+        public async Task<IActionResult> DajLjestvicu()
+        {
+            List < Korisnik > korisniks = await _context.Korisnik.ToListAsync();
+            List<Tuple<Korisnik, int>> ranking = new List<Tuple<Korisnik, int>>();
+            foreach(Korisnik k in korisniks)
+            {
+                var t = new Tuple<Korisnik, int>(k, DajBodove(k, LekcijasController.trenutniKurs));
+
+                ranking.Add(t);
+            }
+            return View(ranking);
+        }
+
+        public int? DajKursKviza(Kviz k)
+        {
+            Odgovor o = _context.Odgovor.FirstOrDefault(x => x.Kviz == k & x.Pitanje != null);
+            if (o != null)
+            {
+                Pitanje p = _context.Pitanje.FirstOrDefault(x => x.PitanjeId == o.PitanjeId);
+                return p.KursId;
+            }
+            return null;
+        }
+
+        private int DajBodove(Korisnik korisnik, Kurs kurs)
+        {
+            var x = _context.Kviz.Where(k => k.Korisnik == korisnik /*& DajKursKviza(k) == kurs*/);
+            int sum = 0;
+            var l = x.ToList();
+            foreach (var i in l)
+            {
+                if(DajKursKviza(i) == kurs.Id)
+                    sum += i.Rezultat;
+            }
+
+
+            return sum;
+        }
     }
 }

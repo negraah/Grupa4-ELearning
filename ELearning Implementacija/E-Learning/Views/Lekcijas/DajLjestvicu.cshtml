@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Tuple<E_Learning.Models.Korisnik, int>>
+
+@{
+    ViewData["Title"] = "Ljestvica";
+}
+
+<h1>DajLjestvicu</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Item1.Ime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Item1.Prezime)
+            </th>
+            <th>
+                Bodovi
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Item1.Ime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Item1.Prezime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Item2)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
