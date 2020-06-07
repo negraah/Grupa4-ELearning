@@ -65,6 +65,8 @@ namespace E_Learning.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Ocjena,Komentar,KursId,KorisnikId")] Recenzija recenzija)
         {
+            recenzija.Korisnik = KorisniksController.Trenutni;
+            recenzija.Kurs = LekcijasController.trenutniKurs;
             if (ModelState.IsValid)
             {
                 _context.Add(recenzija);

@@ -15,7 +15,7 @@ namespace E_Learning.Controllers
     public class LekcijasController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private static Kurs trenutniKurs = null;
+        public static Kurs trenutniKurs = null;
 
         public LekcijasController(ApplicationDbContext context)
         {

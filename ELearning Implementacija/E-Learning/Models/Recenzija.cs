@@ -16,6 +16,6 @@ namespace E_Learning.Models
         public Kurs Kurs { get; set; }
 
         public int KorisnikId { get; set; }
-        public Kviz Korisnik { get; set; }
+        public Korisnik Korisnik { get; set; }
     }
 }
