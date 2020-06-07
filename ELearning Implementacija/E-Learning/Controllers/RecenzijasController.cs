@@ -63,10 +63,13 @@ namespace E_Learning.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Ocjena,Komentar,KursId,KorisnikId")] Recenzija recenzija)
+        public async Task<IActionResult> Create(int Ocjena, string Komentar)
         {
-            recenzija.Korisnik = KorisniksController.Trenutni;
-            recenzija.Kurs = LekcijasController.trenutniKurs;
+            Recenzija recenzija = new Recenzija();
+            recenzija.Ocjena = Ocjena;
+            recenzija.Komentar = Komentar;
+            recenzija.KorisnikId = KorisniksController.Trenutni.Id;
+            recenzija.KursId = LekcijasController.trenutniKurs.Id;
             if (ModelState.IsValid)
             {
                 _context.Add(recenzija);
@@ -75,7 +78,7 @@ namespace E_Learning.Controllers
             }
             ViewData["KorisnikId"] = new SelectList(_context.Kviz, "Id", "Id", recenzija.KorisnikId);
             ViewData["KursId"] = new SelectList(_context.Kurs, "Id", "Id", recenzija.KursId);
-            return View(recenzija);
+            return RedirectToAction("Index", "Recenzijas", new { KursId = LekcijasController.trenutniKurs });
         }
 
         // GET: Recenzijas/Edit/5

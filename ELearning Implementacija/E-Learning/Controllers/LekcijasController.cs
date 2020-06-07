@@ -246,5 +246,11 @@ namespace E_Learning.Controllers
             Console.WriteLine(lekcija_string);
             return RedirectToAction(lekcija_string, "Resursi");
         }
+
+
+        public async Task<IActionResult> DodajRecenziju()
+        {
+            return RedirectToAction("Create", "Recenzijas");
+        }
     }
 }
