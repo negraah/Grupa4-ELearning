@@ -53,7 +53,7 @@ namespace E_Learning.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Registracija([Bind("Id,Ime,Prezime,Email,Password")] Korisnik korisnik)
+        public async Task<IActionResult> Registracija([Bind("Id,Ime,Prezime,Email,Password,RepeatPassword")] Korisnik korisnik)
         {
             if (ModelState.IsValid)
             {
@@ -61,6 +61,8 @@ namespace E_Learning.Controllers
                     return View("Registracija", "Nalog");
                 korisnik.Pristup = korisnik.Email.Split('@')[1] == "etf.unsa.ba" ? 1 : 0;
 
+                if(korisnik.Password != korisnik.RepeatPassword)
+                    return RedirectToAction("Index", "Home");
                 _context.Add(korisnik);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Prijava", "Nalog");

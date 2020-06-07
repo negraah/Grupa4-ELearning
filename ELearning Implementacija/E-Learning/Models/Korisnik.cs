@@ -13,6 +13,8 @@ namespace E_Learning.Models
 		public string Email { get; set; }
 		public string Password { get; set; }
 
+		public string RepeatPassword { get; set; }
+
 		// 0 - obicni, 1 - faks mejl, 2 - admin
 		public int Pristup { get; set; }
 
