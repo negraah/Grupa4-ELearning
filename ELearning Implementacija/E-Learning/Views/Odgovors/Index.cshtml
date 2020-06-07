@@ -1,53 +1,104 @@
 ﻿@model IEnumerable<E_Learning.Models.Odgovor>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Kviz";
 }
 
-<h1>Index</h1>
+<head>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.JeLiTacno)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Pitanje.PitanjeTekst)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Pitanje.TacanOdg)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Kviz)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.JeLiTacno)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Pitanje.PitanjeTekst)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Pitanje.TacanOdg)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Kviz.Id)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <style>
+
+        .pocetni-prikaz {
+            color: black;
+            text-align: left;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        table, th, td {
+            border: dotted;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: center;
+            border: dotted;
+        }
+
+        table#t01 tr:nth-child(even) {
+            background-color: white;
+        }
+
+        table#t01 tr:nth-child(odd) {
+            background-color: white;
+            border: dotted;
+        }
+
+        table#t01 th {
+            background-color: #c203fc;
+            color: black;
+            border: dotted;
+        }
+    </style>
+
+</head>
+
+
+<body>
+    <br>
+    <div class="pocetni-prikaz">
+    <h1>Kviz</h1>    
+    <br>
+    </div>
+
+    @if (E_Learning.Controllers.KorisniksController.Trenutni.Pristup == 2) { 
+    <p>
+        <a asp-action="Create">Kreiraj novi</a>
+    </p>
+    }
+
+    <table id="t01">
+        <thead>
+            <tr>
+                <th>
+                    <p>Je li tačno?</p>
+                </th>
+                <th>
+                    <p>Postavka pitanja:</p>
+                </th>
+                <th>
+                    <p>Tačan odgovor je:</p>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JeLiTacno)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pitanje.PitanjeTekst)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pitanje.TacanOdg)
+                </td>
+
+                @if (E_Learning.Controllers.KorisniksController.Trenutni.Pristup == 2)
+                {
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Uredi</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Detalji</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Obriši</a>
+                    </td>
+                }
+                </tr>
+            }
+        </tbody>
+    </table>
+    </body>
