@@ -70,3 +70,4 @@ Dnevni izazov (daily challenge) je planiran da bude web servis. Ova funkcionalno
 ***Video naše aplikacije***
 -------------
 https://drive.google.com/file/d/1_bF9gMO5oW_30ToEpZTIESLgfiC3XItw/view?usp=sharing
+Da bi video stao u vremenske zahtjeve može se slušati sa brzinom x2.
