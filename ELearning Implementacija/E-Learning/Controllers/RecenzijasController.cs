@@ -20,10 +20,14 @@ namespace E_Learning.Controllers
         }
 
         // GET: Recenzijas
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? KursId)
         {
             var applicationDbContext = _context.Recenzije.Include(r => r.Korisnik).Include(r => r.Kurs);
-            return View(await applicationDbContext.ToListAsync());
+            if (!KursId.HasValue)
+            {
+                return View(await applicationDbContext.ToListAsync());
+            }
+            return View(await applicationDbContext.Where(k => k.KursId == KursId).ToListAsync());
         }
 
         // GET: Recenzijas/Details/5
