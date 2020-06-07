@@ -73,7 +73,12 @@
                 <th>
                     <p>Tačan odgovor je:</p>
                 </th>
-            </tr>
+                @if (E_Learning.Controllers.KorisniksController.Trenutni.Pristup == 2)
+                {
+
+                    <th></th>
+                }
+                </tr>
         </thead>
         <tbody>
             @foreach (var item in Model)
