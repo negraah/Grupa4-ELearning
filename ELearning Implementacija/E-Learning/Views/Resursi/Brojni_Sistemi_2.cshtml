@@ -3,5 +3,58 @@
     ViewData["Title"] = "Kombinatorika1";
 }
 
-<h1>Kombinatorika1</h1>
+<h1>Lekcija 2 - Binarna algebra</h1>
+<p>Binarne brojeve možete sabirati, oduzimati, množiti i dijeliti. Upoznajte se sa tablicama sabiranja, oduzimanja i množenja koje vrijede za brojeve koji pripadaju binarnom brojnom sistemu. Bez poznavanja ovih tablica nećete moći savladati tehnike sabiranja, oduzimanja, množenja i dijeljenja binarnih brojeva u konkretnim primjerima.</p>
+<p>Tablice računskih operacija sa binarnim brojevima</p>
+<p>TABLICA SABIRANjA (+)<br>0 + 0 = 0<br>1 + 0 = 1<br>0 + 1 = 1<br>1 + 1 = 0  (1 se prenosi)</p> 
+<p>TABLICA ODUZIMANjA (-)<br>0 - 0 = 0<br>1 - 0 = 1<br>0 - 1 = 1 (1 se pozajmljuje)<br>1 - 1 = 0</p>
+<p>TABLICA MNOŽENjA(*)<br>0 * 0 = 0<br>1 * 0 = 0<br>0 * 1 = 0<br>1 * 1 = 1</p>
+<p>Primjeri sabiranja, oduzimanja, množenja i dijeljenja binarnih brojeva:</p>
+<pre style="font-family:verdana">1. Izračunajte zbir binarnih brojeva: 10 i 11.
+Rješenje:
+ 10
+ 11
+___
+101
+
+1+0 jednako je 1
+1+1 jednako je 0, a 1 se prenosi 
+
+2. Izračunajte razliku binarnih brojeva: 1011 i 101.
+Rješenje:
+1011
+  101
+___
+  110
+  
+1-1 jednako je 0,
+1-0 jednako je 1
+0-1 jednako je 1, a 1 se pozajmljuje,
+1-1(što ste ga pozajmili)
+jednako je 0
+
+3. Izračunajte proizvod binarnih brojeva: 1011 i 11.
+1011*11
+________
+     1011  
+       1011
+________
+    100001 
+    
+Rješenje: množite po tablici množenja, a sabiranje vršite po tablici za 
+sabiranje binarnih brojeva
+
+4. Izračunajte količnik binarnih brojeva: 1111 i 101.
+Rješenje:
+ 1111: 101=11
+-101
+ ___
+   101
+  -101
+ ____
+   = 0
+   
+101 u 111 ide jedanput (1),
+1*101 jednako je 101,  pišete ga ispod 111,po tablici oduzimanja dobićete ostatak 10, spustite 1 pored 10 i dobićete 101,
+101 u 101 ide jedan put (1) bez ostatka</pre>
 
