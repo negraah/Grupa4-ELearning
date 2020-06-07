@@ -1,38 +1,64 @@
-﻿@model E_Learning.Models.Korisnik
+﻿<html>
+@model E_Learning.Models.Korisnik
 
 @{
     ViewData["Title"] = "Prijava";
 }
 
-<h1>Prijava</h1>
 
-<h4>Korisnik</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Prijava">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Prijavi" class="btn btn-primary" />
-            </div>
-        </form>
+<head>
+    <style>
+
+        h1 {
+            color: black;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        label, input {
+            display:block;
+            width: 150px;
+            float: left;
+            margin-bottom: 10px;
+            text-align:center;
+            object-position:center;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+
+    <h1>Prijava</h1>
+    <hr>
+    <br>
+    <br>
+
+    <h4><i>Korisnik</i></h4>
+        <br>
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Prijava">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password" class="control-label"></label>
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Prijavi" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+</body>
+</html>
