@@ -252,5 +252,10 @@ namespace E_Learning.Controllers
         {
             return RedirectToAction("Create", "Recenzijas");
         }
+
+        public async Task<IActionResult> DajRecenzije()
+        {
+            return RedirectToAction("Index", "Recenzijas", new { KursId = LekcijasController.trenutniKurs });
+        }
     }
 }
