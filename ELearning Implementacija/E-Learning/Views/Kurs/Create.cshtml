@@ -1,42 +1,54 @@
 ﻿@model E_Learning.Models.Kurs
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Dodavanje novog kursa";
 }
 
-<h1>Create</h1>
+<head>
+    <style>
+        h1 {
+            text-align: left;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: #8b17cf;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
 
-<h4>Kurs</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Naziv" class="control-label"></label>
-                <input asp-for="Naziv" class="form-control" />
-                <span asp-validation-for="Naziv" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="PotrebanFaks" /> @Html.DisplayNameFor(model => model.PotrebanFaks)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="OblastId" class="control-label"></label>
-                <select asp-for="OblastId" class ="form-control" asp-items="ViewBag.OblastId"></select>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+<body>
+    <br>
+    <h1>Dodaj novi kurs</h1>
+    <br>
+    <h3>Kurs</h3>
+    <hr>
+    <br>
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Naziv" class="control-label"></label>
+                    <input asp-for="Naziv" class="form-control" />
+                    <span asp-validation-for="Naziv" class="text-danger"></span>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="PotrebanFaks" /> @Html.DisplayNameFor(model => model.PotrebanFaks)
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label asp-for="OblastId" class="control-label"></label>
+                    <select asp-for="OblastId" class="form-control" asp-items="ViewBag.OblastId"></select>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+    </body>
