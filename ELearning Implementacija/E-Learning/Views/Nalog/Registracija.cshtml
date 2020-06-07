@@ -1,12 +1,28 @@
 ﻿@model E_Learning.Models.Korisnik
-    
+
 @{
     ViewData["Title"] = "Registracija";
 }
 
-<h1>Registracija</h1>
 
-<h4>Korisnik</h4>
+<head>
+    <style>
+
+        h1 {
+            color: black;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: #4CAF50;
+            text-transform: uppercase;
+        }
+
+        </style>
+    </head>
+
+<body>
+    <br>
+<h1>Registracija</h1>
+    <br>
+<h4><i>Korisnik</i></h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -39,10 +55,8 @@
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+    </body>
