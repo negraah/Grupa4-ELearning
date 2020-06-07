@@ -22,7 +22,7 @@
         }
 
         th, td {
-            padding: 15px;
+            padding: 25px;
             text-align: center;
             border: dotted;
         }
@@ -68,10 +68,7 @@
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Ime)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Kurs)
+                    Izaberite lekciju koju želite 
                 </th>
            
             </tr>
@@ -82,9 +79,6 @@
             <tr>
                 <td>
                     <a asp-action="Open" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Ime)</a>
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Kurs.Id)
                 </td>
                 @if (E_Learning.Controllers.KorisniksController.Trenutni.Pristup == 2)
                 {
