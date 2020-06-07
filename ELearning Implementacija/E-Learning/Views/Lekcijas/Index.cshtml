@@ -1,46 +1,106 @@
 ﻿@model IEnumerable<E_Learning.Models.Lekcija>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Lekcije";
 }
 
-<h1>Lekcije</h1>
+<head>
+    <style>
+        .pocetni-prikaz {
+            color: black;
+            text-align: left;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        table {
+            width: 100%;
+        }
 
-<p>
-    <a asp-action="Create">Create New</a>
-    <a asp-action="PokreniKviz">Kviz</a>
-    <a asp-action="PokreniDaily">Daily Chanllenge</a>
-    <a asp-action="DajLjestvicu">Ljestvica</a>
-    <a asp-action="DodajRecenziju">Nova Recenzija</a>
-    <a asp-action="DajRecenzije">Pogledaj Recenzije</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Ime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Kurs)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                <a asp-action="Open" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Ime)</a>
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Kurs.Id)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            border: dotted;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: center;
+            border: dotted;
+        }
+
+        table#t01 tr:nth-child(even) {
+            background-color: white;
+        }
+
+        table#t01 tr:nth-child(odd) {
+            background-color: white;
+            border: dotted;
+        }
+
+        table#t01 th {
+            background-color: #34eb6e;
+            color: black;
+            border: dotted;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <br>
+    <div class="pocetni-prikaz">
+        <h1>Lekcije</h1>
+    </div>
+    <br>
+   @if (E_Learning.Controllers.KorisniksController.Trenutni.Pristup == 2)
+    {
+    <p><a asp-action="Create">Napravi novu lekciju</a></p>
+    }else if (E_Learning.Controllers.KorisniksController.Trenutni.Pristup == 1)
+    {
+    <p><a asp-action="PokreniKviz">Kviz |</a>
+      <a asp-action="PokreniDaily">Daily Challenge |</a>
+    <a asp-action="DajLjestvicu">Ljestvica |</a>  
+    <a asp-action="DodajRecenziju">Nova Recenzija |</a>
+     <a asp-action="DajRecenzije">Pogledaj Recenzije </a></p>
+    }
+   <br>
+    <table id="t01">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Ime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Kurs)
+                </th>
+           
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    <a asp-action="Open" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Ime)</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Kurs.Id)
+                </td>
+                @if (E_Learning.Controllers.KorisniksController.Trenutni.Pristup == 2)
+                {
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+                }else
+                {
+                   
+                }
+            </tr>
+            }
+        </tbody>
+    </table>
+
+
+</body>
