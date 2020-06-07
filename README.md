@@ -65,7 +65,7 @@ Moguć je pristup više korisnika. Korisnik također može izabrati oblasti, a i
 ***Web servis***
 -------------
 
-Dnevni izazov (daily challenge) je planiran da bude web servis. Ova funkcionalnost služi za određivanje najboljih korisnika koji će se prikazivati na ljestvici. 
+Dnevni izazov (daily challenge) je planiran da bude web servis. Ova funkcionalnost služi za određivanje najboljih korisnika koji će se prikazivati na ljestvici. Ideja je da server prvo koristeći internu funkciju generiše, odnosno izračuna random seed koji je za svaka 2 dana različit, ali za svaka 2 trenutka u istom danu identican. Nakon što generiše seed generišse pitanja koja će se postaviti korisnicima. Zbog ovoga kada god neki korisnik bude htio da pristupi daily challenge, on će ustvari preuzimati pitanja za dati kviz sa servera, a ne da ih sam on generise, kao što se radi kod običnog kviza.
 
 
 
