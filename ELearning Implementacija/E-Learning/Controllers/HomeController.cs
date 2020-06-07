@@ -24,6 +24,11 @@ namespace E_Learning.Controllers
             return View();
         }
 
+        public IActionResult O_Nama()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
