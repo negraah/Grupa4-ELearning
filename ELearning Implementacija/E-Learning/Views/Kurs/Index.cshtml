@@ -1,48 +1,128 @@
 ﻿@model IEnumerable<E_Learning.Models.Kurs>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Kurs";
 }
 
-<h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Naziv)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PotrebanFaks)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Oblast)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                <a asp-action="Open" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Naziv)</a>
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PotrebanFaks)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Oblast.Id)
-            </td>
-            <td>
-                <a asp-action="Upisi" asp-route-id="@item.Id">Upiši</a> |
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+<head>
+    <style>
+        .pocetni-prikaz {
+            color: black;
+            text-align: left;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        th, td {
+            padding: 15px;
+            text-align: center;
+        }
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        table#t01 tr:nth-child(even) {
+            background-color: white;
+        }
+
+        table#t01 tr:nth-child(odd) {
+            background-color: white;
+            border: dashed;
+        }
+
+        table#t01 th {
+            background-color: #1f74bf;
+            color: black;
+            border: dotted;
+        }
+
+    </style>
+
+
+    </head>
+
+
+
+<body>
+    <br>
+    <div class="pocetni-prikaz">
+        <h1>Kursevi</h1>
+    </div>
+    <br>
+
+    @if (E_Learning.Controllers.KorisniksController.Trenutni == null)
+    {
+        <p><i>Klikom na kurs koji želite pohađati, otvorit će Vam se lekcije koje su trentno dostupne. Ukoliko se niste upisali, imate priliku sada da se upišete.</i></p>
+    }
+    else if (E_Learning.Controllers.KorisniksController.Trenutni.Pristup == 1)
+    {
+        <p><i>Klikom na kurs na koji želite, otvorit će Vam se lekcije koje su trentno dostupne. Ukoliko se niste upisali, imate priliku sada da se upišete.</i></p>
+    }
+    else if (E_Learning.Controllers.KorisniksController.Trenutni.Pristup == 2)
+    {
+        <p>
+            <a asp-action="Create">Dodaj novi kurs</a>
+        </p>
+    }
+    <br>
+    <table id="t01">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Naziv)
+                </th>
+                <th>
+                    <p>Potreban fakultetski mejl</p>
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Opis)
+                    </th>
+            </tr>
+        </thead>
+
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    <a asp-action="Open" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Naziv)</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PotrebanFaks)
+                </td>
+
+
+                @if (E_Learning.Controllers.KorisniksController.Trenutni == null)
+                {
+                    <td> @Html.DisplayFor(modelItem => item.Opis) </td>
+                }
+                else if (E_Learning.Controllers.KorisniksController.Trenutni.Pristup == 2)
+                {
+                    <td>
+                        <a asp-action="Upisi" asp-route-id="@item.Id">Upiši</a> |
+                        <a asp-action="Edit" asp-route-id="@item.Id">Promijeni</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Detalji</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Obriši</a>
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        <a asp-action="Upisi" asp-route-id="@item.Id">Upiši me na ovaj kurs </a>
+                        <hr>
+                    @Html.DisplayFor(modelItem => item.Opis) 
+                    </td>
+
+                }
+            </tr>
+            }
+        </tbody>
+    </table>
+
+
+
+</body>
+
+
+
