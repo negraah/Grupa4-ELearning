@@ -22,6 +22,7 @@ namespace E_Learning.Data
         public DbSet<Odgovor> Odgovor { get; set; }
         public DbSet<Pitanje> Pitanje { get; set; }
         public DbSet<Upisivanje> Upisivanje { get; set; }
+        public DbSet<Recenzija> Recenzije { get; set; }
 
 
         /*
