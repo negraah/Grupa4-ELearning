@@ -1,49 +1,63 @@
 ﻿@model E_Learning.Models.Kurs
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Izmjena oblasti";
 }
 
-<h1>Edit</h1>
 
-<h4>Kurs</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Naziv" class="control-label"></label>
-                <input asp-for="Naziv" class="form-control" />
-                <span asp-validation-for="Naziv" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Opis" class="control-label"></label>
-                <input asp-for="Opis" class="form-control" />
-                <span asp-validation-for="Opis" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="PotrebanFaks" /> @Html.DisplayNameFor(model => model.PotrebanFaks)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="OblastId" class="control-label"></label>
-                <select asp-for="OblastId" class="form-control" asp-items="ViewBag.OblastId"></select>
-                <span asp-validation-for="OblastId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+<head>
+    <style>
+        h1 {
+            text-align: left;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: #3ccf17;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body>
+
+    <br>
+    <h1>Uredi kurs</h1>
+    <br>
+    <h4>Kurs</h4>
+    <hr />
+    <br>
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <label asp-for="Naziv" class="control-label"></label>
+                    <input asp-for="Naziv" class="form-control" />
+                    <span asp-validation-for="Naziv" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Opis" class="control-label"></label>
+                    <input asp-for="Opis" class="form-control" />
+                    <span asp-validation-for="Opis" class="text-danger"></span>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="PotrebanFaks" /> @Html.DisplayNameFor(model => model.PotrebanFaks)
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label asp-for="OblastId" class="control-label"></label>
+                    <select asp-for="OblastId" class="form-control" asp-items="ViewBag.OblastId"></select>
+                    <span asp-validation-for="OblastId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+</body>
