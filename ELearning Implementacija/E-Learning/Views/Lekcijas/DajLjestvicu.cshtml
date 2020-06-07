@@ -4,12 +4,48 @@
     ViewData["Title"] = "Ljestvica";
 }
 
-<h1>DajLjestvicu</h1>
+<head>
+    <style>
+        table {
+            width: 100%;
+        }
+        th, td {
+            padding: 15px;
+            text-align: center;
+        }
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
+        table#t01 tr:nth-child(even) {
+            background-color: white;
+        }
+        table#t01 th {
+            background-color: #a26ec4;
+            color: black;
+
+        }
+        h1 {
+            color: black;
+            text-align: left;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+
+    </style>
+    </head>
+
+<body>
+    <br>
+
+<h1><i>Ljestvica najuspješnijih korisnika</i></h1>
+
+    <br>
+@if (E_Learning.Controllers.KorisniksController.Trenutni.Pristup == 2)
+    {
+        <p>
+    <a asp-action="Create">Napravi novu ljestvicu</a>
+        </p>
+    }
+<br>
+<table id="t01">
     <thead>
         <tr>
             <th>
@@ -39,3 +75,5 @@
 }
     </tbody>
 </table>
+
+</body>
