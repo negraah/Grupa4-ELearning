@@ -52,23 +52,33 @@
         <h1>Lekcije</h1>
     </div>
     <br>
-   @if (E_Learning.Controllers.KorisniksController.Trenutni.Pristup == 2)
+    @if (E_Learning.Controllers.KorisniksController.Trenutni.Pristup == 2)
     {
-    <p><a asp-action="Create">Napravi novu lekciju</a></p>
-    }else if (E_Learning.Controllers.KorisniksController.Trenutni.Pristup == 1)
-    {
-    <p><a asp-action="PokreniKviz">Kviz |</a>
-      <a asp-action="PokreniDaily">Daily Challenge |</a>
-    <a asp-action="DajLjestvicu">Ljestvica |</a>  
-    <a asp-action="DodajRecenziju">Nova Recenzija |</a>
-     <a asp-action="DajRecenzije">Pogledaj Recenzije </a></p>
+        <p>
+            <a asp-action="Create">Napravi novu lekciju</a> | 
+            <a asp-action="PokreniKviz">Kviz</a> | 
+            <a asp-action="PokreniDaily">Daily Challenge</a> | 
+            <a asp-action="DajLjestvicu">Ljestvica</a> | 
+            <a asp-action="DodajRecenziju">Nova Recenzija</a> | 
+            <a asp-action="DajRecenzije">Pogledaj Recenzije </a>
+        </p>
     }
-   <br>
+    else if (E_Learning.Controllers.KorisniksController.Trenutni != null)
+    {
+    <p>
+        <a asp-action="PokreniKviz">Kviz |</a>
+        <a asp-action="PokreniDaily">Daily Challenge |</a>
+        <a asp-action="DajLjestvicu">Ljestvica |</a>
+        <a asp-action="DodajRecenziju">Nova Recenzija |</a>
+        <a asp-action="DajRecenzije">Pogledaj Recenzije </a>
+    </p>
+    }
+    <br>
     <table id="t01">
         <thead>
             <tr>
                 <th>
-                    Izaberite lekciju koju želite 
+                    Izaberite lekciju koju želite
                 </th>
                 @if (E_Learning.Controllers.KorisniksController.Trenutni.Pristup == 2)
                 {
@@ -79,22 +89,23 @@
         <tbody>
             @foreach (var item in Model)
             {
-            <tr>
-                <td>
-                    <a asp-action="Open" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Ime)</a>
-                </td>
-                @if (E_Learning.Controllers.KorisniksController.Trenutni.Pristup == 2)
-                {
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Uredi</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Detalji</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Obriši</a>
-                </td>
-                }else
-                {
-                   
-                }
-            </tr>
+                <tr>
+                    <td>
+                        <a asp-action="Open" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Ime)</a>
+                    </td>
+                    @if (E_Learning.Controllers.KorisniksController.Trenutni.Pristup == 2)
+                    {
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id">Uredi</a> |
+                            <a asp-action="Details" asp-route-id="@item.Id">Detalji</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Id">Obriši</a>
+                        </td>
+                    }
+                    else
+                    {
+
+                    }
+                </tr>
             }
         </tbody>
     </table>
