@@ -70,7 +70,10 @@
                 <th>
                     Izaberite lekciju koju želite 
                 </th>
-           
+                @if (E_Learning.Controllers.KorisniksController.Trenutni.Pristup == 2)
+                {
+                    <th>Mogućnosti administratora</th>
+                }
             </tr>
         </thead>
         <tbody>
@@ -83,9 +86,9 @@
                 @if (E_Learning.Controllers.KorisniksController.Trenutni.Pristup == 2)
                 {
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Uredi</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Detalji</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Obriši</a>
                 </td>
                 }else
                 {
