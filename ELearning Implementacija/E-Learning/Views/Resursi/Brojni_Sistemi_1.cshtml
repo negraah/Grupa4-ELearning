@@ -2,6 +2,31 @@
 @{
     ViewData["Title"] = "Kombinatorika1";
 }
-
-<h1>Kombinatorika1</h1>
-
+<style>
+.newspaper {
+  column-count: 3;
+  column-gap: 40px;
+  column-rule-style: solid;
+  column-rule-width: 1px;
+}
+</style>
+<h1>Lekcija 1 - Uvod u brojne sisteme</h1>
+<p>Brojni sistem je sistem pomoću kojeg se predstavljaju brojevi.<br>Najpoznatiji brojni sistem je dekadni sistem ili decimalni sistem (baza je 10), koji najviše i koristimo. Pored njega korisni su i binarni sistem (baza 2) ili heksadecimalni (baza 16) ili oktalni sistem (baza 8). Principijelno je moguć sistem na bilo kojoj bazi.<br>Jedan brojevni sistem se uvijek sastoji iz baze b i skupa simbola koje nazivamo ciframa. Jedan brojevni sistem ima uvijek b-1 cifara. Stariji sistemi, koji se više ne koriste, kao npr. rimski sistem, ne odogovaraju ovoj šemi, nego su oni takozvani aditivni sistemi.</p>
+<h2>Dekadni brojni sistem</h2>
+<p><b>Dekadni sistem</b> je danas najrasprostanjeniji. Porijeklom dolazi iz Indije a u Evropi se prvi put pojavljuje u 10. vijeku, tada još bez nule.
+<p>Želimo li brojeve iz dekadnog brojnog sistema pretvoriti u neki drugi brojni sistem, najjednostavnije ćemo to učiniti tako što broj dijelimo bazom brojnog sistema u kojeg ga pretvaramo sve dok količnik ne bude 0 a potom prepišemo ostatke dijeljenja unazad. Primjer pretvorbe broja 20:</p>
+<div class="newspaper"><b>binarni</b><br>20 : 2 = 10 (0)<br>10 : 2 = 5 (0)<br>5 : 2 = 2 (1)<br>2 : 2 = 1 (0)<br>1 : 2 = 0 (1)<br>binarni broj je 10100<br><b>oktalni</b><br>20 : 8 = 2 (4)<br>2 : 8 = 0 (2)<br>oktalni broj je 24<br><br><br><br><b>heksadecimalni</b><br>20 : 16 = 1 (4)<br>1 : 16 = 0 (1)<br>hexadecimalni broj je E<br><br></div>
+<h2>Binarni brojni sistem</h2>
+<p>Binarni ili dualni sistem je po nekim izvorima prvi koristio Leibniz u 17. vijeku. Danas je pored dekadnog sistema ovo najrasprostarnjeniji sistem zbog upotrebe u digitalnoj tehnici i računarstvu.<br>Binarni sistem je sistem na bazi 2. Znači svaki broj se predstavlja isključivo sa dvije cifre. U našem slučaju neka to bude 0 i 1. Brojevi bi onda izgledali ovako:</p>
+<p>0 = 0<br>1 = 1<br>2 = 10<br>3 = 11
+<br>4 = 100<br>5 = 101<br>6 = 110<br>7 = 111<br>8 = 1000 itd.</p>
+<p>Pretvaranje binarnog broja u decimalni funkioniše na sljedeći način:<br>11001 = 1*2⁴+1*2³+0*2²+0*2¹+1*2⁰ = 16+8+1 = 25</p>
+<h2>Oktalni brojni sistem</h2>
+<p>Oktalni sistem je brojevni sistem kod kojeg je b=8, S={0,1,2,3,4,5,6,7}.<br>Ovaj sistem se koristi u računarstvu, mada danas znatno rjeđe nego u prethodnim decenijama.</p>
+<p>Primjeri brojeva zapisanih u ovim sistemu su 243. Vrijednost ovih brojeva u dekadnom sistemu je: 243(okt)= 2*8²+4*8¹+3*8⁰=163(dec)</p>
+<h2>Heksadecimalni brojni sistem</h2>
+<p>Hkesadecimlani sistem je sistem na bazi 16. Svi brojevi se predstavljaju sa 16 cifara. Kao cifre se koriste (0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F)<br>Broj 10 se piše kao A, broj 11 kao B itd. sve do F što predstavlja broj 15.</p>
+<p>Pretvaranje funkcioniše slično kao kod binarnog sistema samo što sada umjesto beze 2 imamo bazu 16.<br>Recimo imamo FD3 (baza 16) što je u dekadnom sistemu 4051.<br>
+F * 16² + D * 16¹ + 3 * 16⁰ = 3840 + 208 + 3 = 4051</p>
+<p>Heksadecimalni sistem se koristi u računarstvu u kombinaciji sa binarnim sistemom jer se pretvaranje može lako obavljati. 4 Mjesta u binarnom sistemu zauzimaju samo jedno mjesto u heksadecimalnom sistemu.</p>
+<br><p>Za razumijevanje ovih sistema potrebno je napraviti strogu razliku između broja, kao prirodno-matematičkog pojma, i njegovog predstavljanja. Npr. broj 3 (kao 3 jabuke) se može predstaviti kao 3, u slučaju da koristimo dekadni sistem ili kao 11 ako se koristi binarni sistem.</p>
