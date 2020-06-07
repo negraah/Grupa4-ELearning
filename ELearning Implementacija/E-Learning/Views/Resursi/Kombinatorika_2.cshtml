@@ -3,5 +3,28 @@
     ViewData["Title"] = "Kombinatorika1";
 }
 
-<h1>Kombinatorika1</h1>
+<h1>Lekcija 2 - Permutacije</h1>
+<h2>Permutacije bez ponavljanja</h2>
+<p>Permutacije bez ponavljanja od n elemenata predstavljaju načine na koje možemo n elemenata rasporediti u niz. Uzmimo, kao primer, skup od 4 elementa {A,B,C,D}. Permutacije njegovih elemenata, tj. slova A, B, C i D, biće:</p>
+<img src="https://latex.codecogs.com/svg.latex?\begin{array}{llll}%20ABCD%20&%20BACD%20&%20CABD%20&%20DABC\\%20ABDC%20&%20BADC%20&%20CADB%20&%20DACB\\%20ACBD%20&%20BCAD%20&%20CBAD%20&%20DBAC\\%20ACDB%20&%20BCDA%20&%20CBDA%20&%20DBCA\\%20ADBC%20&%20BDAC%20&%20CDAB%20&%20DCAB\\%20ADCB%20&%20BDCA%20&%20CDBA%20&%20DCBA%20\end{array}" border="0"/>
+<p>Na prvu poziciju možemo smestiti bilo koji od n elemenata, tj. imamo n mogućnosti. Za drugu poziciju nam ostaje (n−1) mogućnosti, budući da je jedan od tih n elemenata već iskorišćen (onaj što se već nalazi na prvoj poziciji). Za treću poziciju nam ostaje (n−2) mogućnosti, jer su dva od n elemenata već iskorišćena, tj. nalaze se na prvom i drugom mestu... Stižemo tako do poslednja dva mesta – za pretposlednje mesto nam preostaju dva elementa, tj. imamo dve mogućnosti, a za poslenje mesto nam, naravno, preostaje samo jedna mogućnost.
+Broj mogućih permutacija dobićemo kad pomnožimo sve ove mogućnosti. Dakle,</p>
+<img src="https://latex.codecogs.com/svg.latex?P_n=n\cdot(n-1)\cdot(n-2)\cdot\cdot\cdot3\cdot2\cdot1" border="0"/>
+<p>Kako bi ovo lakše bilo zapisano, uvedena je oznaka faktorijel (piše se kao znak uzvika). Faktorijel nekog broja označava proizvod tog broja i svih prirodnih brojeva manjih od njega:</p>
+<img src="https://latex.codecogs.com/svg.latex?n!=n\cdot(n-1)\cdot(n-2)\cdot\cdot\cdot3\cdot2\cdot1" border="0"/>
+<p>pri čemu se definiše</p>
+<img src="https://latex.codecogs.com/svg.latex?0!:=1" border="0"/>
+<p>Prema tome, broj permutacija bez ponavljanja od n elemenata može se zapisati kao:</p>
+<img src="https://latex.codecogs.com/svg.latex?P_n=n!" border="0"/>
+<p>Primjenivši formulu za broj permutacija na gornji primer s 4 elementa, dobijamo P₄=4!=4⋅3⋅2⋅1=24, što je isti broj koji dobijamo i ako prebrojimo permutacije ispisane u tom primjeru</p>
+<h2>Permutacije s ponavljanjem</h2>
+<p>Permutacije s ponavljanjem od n elemenata, među kojima ima m međusobno različitih elemenata a₁,a₂,…,aₘ, predstavljaju načine na koje elemente a₁,a₂,…,aₘ možemo rasporediti u niz, pri čemu se element a₁ u svakoj permutaciji pojavljuje n₁ puta, element a₂ se pojavljuje n₂ puta i tako dalje do elementa aₘ koji se u svakoj permutaciji pojavljuje nₘ puta. Naravno, pri tome je n₁+n₂+…+nₘ. Posmatrajmo to na primjeru raspoređivanja slova koja čine reč BARABA. U toj riječi slovo A se pojavljuje 3 puta, slovo B se pojavljuje 2 puta, a slovo R jedanput. Načini na koje je moguće rasporediti ova slova tako da se u svakom od rasporeda slova A, B i R ponavaljaju 3, 2 i 1 put respektivno, bit će:<br><br></p2>
+<img src="https://latex.codecogs.com/svg.latex?\begin{array}{llllll}%20AAABBR%20&%20AARBAB%20&%20ABBRAA%20&%20BAAABR%20&%20BARABA%20&%20RAAABB\\%20AAABRB%20&%20AARBBA%20&%20ABRAAB%20&%20BAAARB%20&%20BARBAA%20&%20RAABAB\\%20AAARBB%20&%20ABAABR%20&%20ABRABA%20&%20BAABAR%20&%20BBAAAR%20&%20RAABBA\\%20AABABR%20&%20ABAARB%20&%20ABRBAA%20&%20BAABRA%20&%20BBAARA%20&%20RABAAB\\%20AABARB%20&%20ABABAR%20&%20ARAABB%20&%20BAARAB%20&%20BBARAA%20&%20RABABA\\%20AABBAR%20&%20ABABRA%20&%20ARABAB%20&%20BAARBA%20&%20BBRAAA%20&%20RABBAA\\%20AABBRA%20&%20ABARAB%20&%20ARABBA%20&%20BABAAR%20&%20BRAAAB%20&%20RBAAAB\\%20AABRAB%20&%20ABARBA%20&%20ARBAAB%20&%20BABARA%20&%20BRAABA%20&%20RBAABA\\%20AABRBA%20&%20ABBAAR%20&%20ARBABA%20&%20BABRAA%20&%20BRABAA%20&%20RBABAA\\%20AARABB%20&%20ABBARA%20&%20ARBBAA%20&%20BARAAB%20&%20BRBAAA%20&%20RBBAAA%20\end{array}" border="0"/>
+<p>Kada bismo za trenutak pretpostavili da ova tri slova A nisu ista i obeležili ih sa A₁, A₂ i A₃, tada bismo od jedne permutacije, npr. permutacije RAABAB, dobili sljedeće nove permutacije:</p>
+<img src="https://latex.codecogs.com/svg.latex?\begin{array}{llllll}%20RA_1A_2BA_3B%20&%20RA_1A_3BA_2B%20&%20RA_2A_1BA_3B%20&%20RA_2A_3BA_1B%20&%20RA_3A_1BA_2B%20&%20RA_3A_2BA_1B%20\end{array}" border="0"/>
+<p>Primećujemo da bismo od te jedne permutacije dobili onoliko novih permutacija koliki je broj permutacija od ta tri različita slova A. To jest, dobili bismo 3!=6 novih permutacija.</p>
+<p>Uopšteno, kad bismo sve jednake elemente posmatrali kao različite (i time permutacije s ponavljanjem sveli na permutacije bez ponavljanja od n elemenata), svaka od postojećih permutacija bi dala novih n1!⋅n2!⋯nm! permutacija. Sledi da bismo, množenjem broja permutacija s ponavljanjem sa n₁!⋅n₂!⋯nₘ!, dobili broj permutacija bez ponavljanja od n elemenata:</p>
+<img src="https://latex.codecogs.com/svg.latex?\overline%20P_n^{n_1,n_2,\ldots,n_m}\cdot%20n_1!\cdot%20n_2!\cdots%20n_m!=P_n=n!" border="0"/>
+<p>Odatle možemo, odrediti broj permutacija s ponavljanjem:</p>
+<img src="https://latex.codecogs.com/svg.latex?\overline%20P_n^{n_1,n_2,\ldots,n_m}=\frac{n!}{n_1!\cdot%20n_2!\cdots%20n_m!" border="0"/>
 
