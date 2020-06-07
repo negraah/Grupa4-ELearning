@@ -250,7 +250,11 @@ namespace E_Learning.Controllers
 
         public async Task<IActionResult> DodajRecenziju()
         {
-            return RedirectToAction("Create", "Recenzijas");
+            Recenzija r = _context.Recenzije.FirstOrDefault(k => k.KursId == LekcijasController.trenutniKurs.Id
+            & k.KorisnikId == KorisniksController.Trenutni.Id);
+            if (r == null)
+                return RedirectToAction("Create", "Recenzijas");
+            return RedirectToAction("Edit", "Recenzijas" , new { id = r.Id});
         }
 
         public async Task<IActionResult> DajRecenzije()
